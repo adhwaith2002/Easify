@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "71127423238",
+    "project_id": "easify-5e9b4",
+    "storage_bucket": "easify-5e9b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71127423238:android:d6c792415bd62f2289a687",
+        "android_client_info": {
+          "package_name": "com.example.easify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71127423238-mt96errr4mllcj28vn1tc8vsba4ho0hp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL9GCtKixDGZ-wc99BSrDrxDOvEf07Alc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71127423238-mt96errr4mllcj28vn1tc8vsba4ho0hp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71127423238:android:19f1921cb8e6893289a687",
+        "android_client_info": {
+          "package_name": "com.example.zomato"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71127423238-mt96errr4mllcj28vn1tc8vsba4ho0hp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL9GCtKixDGZ-wc99BSrDrxDOvEf07Alc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71127423238-mt96errr4mllcj28vn1tc8vsba4ho0hp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

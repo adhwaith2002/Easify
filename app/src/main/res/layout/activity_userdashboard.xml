@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    tools:context=".userdashboard">
+ 
+ <androidx.constraintlayout.widget.ConstraintLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+
+ <include
+     android:id="@+id/toolbar"
+     layout="@layout/toolbar" />
+
+ <TextView
+     android:id="@+id/services"
+     android:layout_width="0dp"
+     android:layout_height="wrap_content"
+     android:layout_marginStart="16dp"
+     android:layout_marginLeft="16dp"
+     android:layout_marginTop="24dp"
+     android:text="Services"
+     android:textSize="30sp"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+ <ImageView
+     android:id="@+id/serviceimage"
+     android:layout_width="0dp"
+     android:layout_height="160dp"
+     android:layout_marginEnd="16dp"
+     android:layout_marginRight="16dp"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toEndOf="@+id/services"
+     app:layout_constraintTop_toBottomOf="@+id/toolbar"
+     app:srcCompat="@drawable/service" />
+
+ <LinearLayout
+     android:layout_width="0dp"
+     android:layout_height="175dp"
+     android:orientation="horizontal"
+     android:padding="10dp"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintHorizontal_bias="0.0"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/serviceimage">
+
+  <androidx.cardview.widget.CardView
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_margin="10dp"
+      android:layout_weight="1">>
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/plumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/plumberimage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif"
+        android:text="Plumber"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/plumberimage"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/plumber" />
+   </RelativeLayout>
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_margin="10dp"
+      android:layout_weight="1" >
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/painting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/paintingimage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif"
+        android:text="Painting"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/paintingimage"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/paint" />
+   </RelativeLayout>
+  </androidx.cardview.widget.CardView>
+
+
+ </LinearLayout>
+
+ <LinearLayout
+     android:layout_width="0dp"
+     android:layout_height="175dp"
+     android:layout_marginTop="180dp"
+     android:orientation="horizontal"
+     android:padding="10dp"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintHorizontal_bias="0.0"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/serviceimage">
+
+  <androidx.cardview.widget.CardView
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_margin="10dp"
+      android:layout_weight="1">>
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/carmechanic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/carmechanicimage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif"
+        android:text="Car Mechanic"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/carmechanicimage"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/carmechanic" />
+   </RelativeLayout>
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_margin="10dp"
+      android:layout_weight="1">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/electrician"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/electricianimage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif"
+        android:text="Electrician"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/electricianimage"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/electrician" />
+   </RelativeLayout>
+  </androidx.cardview.widget.CardView>
+
+
+ </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="0dp"
+      android:layout_height="175dp"
+      android:layout_marginTop="360dp"
+      android:orientation="horizontal"
+      android:padding="10dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/serviceimage">
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="0dp"
+       android:layout_height="match_parent"
+       android:layout_margin="10dp"
+       android:layout_weight="1">>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+     <TextView
+         android:id="@+id/housecleaning"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/housecleaningimage"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="10dp"
+         android:fontFamily="sans-serif"
+         android:text="House cleaning"
+         android:textSize="24sp" />
+
+     <ImageView
+         android:id="@+id/housecleaningimage"
+         android:layout_width="75dp"
+         android:layout_height="75dp"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="15dp"
+         app:srcCompat="@drawable/housecleaning" />
+    </RelativeLayout>
+   </androidx.cardview.widget.CardView>
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="0dp"
+       android:layout_height="match_parent"
+       android:layout_margin="10dp"
+       android:layout_weight="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+     <TextView
+         android:id="@+id/appliance"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/applianceimage"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="10dp"
+         android:fontFamily="sans-serif"
+         android:text="Appliance"
+         android:textSize="24sp" />
+
+     <ImageView
+         android:id="@+id/applianceimage"
+         android:layout_width="75dp"
+         android:layout_height="75dp"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="15dp"
+         app:srcCompat="@drawable/appliance" />
+    </RelativeLayout>
+   </androidx.cardview.widget.CardView>
+
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="0dp"
+      android:layout_height="175dp"
+      android:layout_marginTop="540dp"
+      android:orientation="horizontal"
+      android:padding="10dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/serviceimage">
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="0dp"
+       android:layout_height="match_parent"
+       android:layout_margin="10dp"
+       android:layout_weight="1">>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+     <TextView
+         android:id="@+id/treecutting"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/treecuttingimage"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="10dp"
+         android:fontFamily="sans-serif"
+         android:text="Tree cutting"
+         android:textSize="24sp" />
+
+     <ImageView
+         android:id="@+id/treecuttingimage"
+         android:layout_width="75dp"
+         android:layout_height="75dp"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="15dp"
+         app:srcCompat="@drawable/treecutting" />
+    </RelativeLayout>
+   </androidx.cardview.widget.CardView>
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="0dp"
+       android:layout_height="match_parent"
+       android:layout_margin="10dp"
+       android:layout_weight="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+     <TextView
+         android:id="@+id/gardening"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/gardeningimage"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="10dp"
+         android:fontFamily="sans-serif"
+         android:text="Gardening"
+         android:textSize="24sp" />
+
+     <ImageView
+         android:id="@+id/gardeningimage"
+         android:layout_width="75dp"
+         android:layout_height="75dp"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="15dp"
+         app:srcCompat="@drawable/gardening" />
+    </RelativeLayout>
+   </androidx.cardview.widget.CardView>
+
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="0dp"
+      android:layout_height="175dp"
+      android:layout_marginTop="720dp"
+      android:orientation="horizontal"
+      android:padding="10dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/serviceimage">
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="0dp"
+       android:layout_height="match_parent"
+       android:layout_margin="10dp"
+       android:layout_weight="1">>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+     <TextView
+         android:id="@+id/cook"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/cookimage"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="10dp"
+         android:fontFamily="sans-serif"
+         android:text="Cook"
+         android:textSize="24sp" />
+
+     <ImageView
+         android:id="@+id/cookimage"
+         android:layout_width="75dp"
+         android:layout_height="75dp"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="15dp"
+         app:srcCompat="@drawable/cook" />
+    </RelativeLayout>
+   </androidx.cardview.widget.CardView>
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="0dp"
+       android:layout_height="match_parent"
+       android:layout_margin="10dp"
+       android:layout_weight="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+     <TextView
+         android:id="@+id/driver"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/driverimage"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="10dp"
+         android:fontFamily="sans-serif"
+         android:text="Driver"
+         android:textSize="24sp" />
+
+     <ImageView
+         android:id="@+id/driverimage"
+         android:layout_width="75dp"
+         android:layout_height="75dp"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="15dp"
+         app:srcCompat="@drawable/driver" />
+    </RelativeLayout>
+   </androidx.cardview.widget.CardView>
+
+
+  </LinearLayout>
+
+ </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
