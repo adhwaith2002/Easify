@@ -68,4 +68,12 @@
         android:layout_margin="0dp"
         android:layout_centerHorizontal="true"
         />
+
+    <ImageView
+        android:id="@+id/google"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_below="@id/signup"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/google" />
 </RelativeLayout>
