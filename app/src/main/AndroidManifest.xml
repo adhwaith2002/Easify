@@ -17,6 +17,36 @@
         tools:replace="android:appComponentFactory"
         tools:targetApi="31">
         <activity
+            android:name=".driver"
+            android:exported="false" />
+        <activity
+            android:name=".cook"
+            android:exported="false" />
+        <activity
+            android:name=".gardening"
+            android:exported="false" />
+        <activity
+            android:name=".treecutting"
+            android:exported="false" />
+        <activity
+            android:name=".appliance"
+            android:exported="false" />
+        <activity
+            android:name=".housecleaning"
+            android:exported="false" />
+        <activity
+            android:name=".electrician"
+            android:exported="false" />
+        <activity
+            android:name=".carmechanic"
+            android:exported="false" />
+        <activity
+            android:name=".painting"
+            android:exported="false" />
+        <activity
+            android:name=".plumber"
+            android:exported="false" />
+        <activity
             android:name=".SecondActivity"
             android:exported="false" />
         <activity

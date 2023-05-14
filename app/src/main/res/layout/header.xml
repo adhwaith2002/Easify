@@ -13,10 +13,19 @@
         android:src="@drawable/profile"/>
 
     <TextView
+        android:id="@+id/dashboarduser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/aclonica"
         android:text="User"
         android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/dashboardemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="email"
+        android:textSize="20sp" />
 
 </LinearLayout>
