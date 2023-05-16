@@ -8,7 +8,7 @@
     android:layout_weight="1"
     tools:context=".electrician"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="start" >
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
@@ -17,15 +17,72 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu"
         android:layout_gravity="start"/>
-    <ScrollView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+    <include
+        android:id="@+id/toolbar_electrician"
+        layout="@layout/toolbar"
+        />
 
-        <include
-            android:id="@+id/toolbar_electrician"
-            layout="@layout/toolbar"
-            />
+    <Button
+        android:id="@+id/electricianbook"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="#8A5BDD"
+        android:text="Book Appointment +"
+        android:textColor="#F3EBEB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_electrician"
+        app:layout_constraintVertical_bias="0.26999998" />
 
-    </ScrollView>
+    <Button
+        android:id="@+id/electriciantrack"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="#8A5BDD"
+        android:text="Track"
+        android:textColor="#F3EBEB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_electrician"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <Button
+        android:id="@+id/electricianhistory"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="#8A5BDD"
+        android:text="History"
+        android:textColor="#F3EBEB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_electrician"
+        app:layout_constraintVertical_bias="0.63" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_electrician"
+        app:layout_constraintVertical_bias="0.060000002"
+        app:srcCompat="@drawable/electrician" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
