@@ -31,9 +31,9 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView signin;
+    TextView signin,signup;
     EditText email,password;
-    Button loginbtn,signup;
+    Button loginbtn;
     DBHelper DB;
 
     GoogleSignInOptions gso;

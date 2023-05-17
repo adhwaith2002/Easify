@@ -129,16 +129,7 @@
         android:layout_margin="20dp"
         android:layout_centerHorizontal="true"
         />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/loginpage"
-        android:layout_below="@id/registernbtn"
-        android:text="login-page"
-        android:backgroundTint="@color/purple_200"
-        android:layout_margin="0sp"
-        android:layout_centerHorizontal="true"
-        />
+
 </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>ad
+</androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

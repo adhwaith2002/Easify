@@ -19,7 +19,7 @@ public class register extends AppCompatActivity {
 
     TextView signuptitle;
     EditText username, email, password, mobile, address, city;
-    Button registerbtn, loginpage;
+    Button registerbtn;
     DBHelper DB;
 
     @Override
@@ -34,7 +34,7 @@ public class register extends AppCompatActivity {
         address = findViewById(R.id.address);
         city = findViewById(R.id.city);
         registerbtn = findViewById(R.id.registernbtn);
-        loginpage = findViewById(R.id.loginpage);
+
         DB =new DBHelper(this);
 
         registerbtn.setOnClickListener(new View.OnClickListener() {
@@ -69,13 +69,7 @@ public class register extends AppCompatActivity {
             }
         });
 
-        loginpage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(register.this,MainActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
     }
 }
