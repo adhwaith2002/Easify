@@ -31,7 +31,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView signin,signup;
+    TextView signin,signup,serviceproviderregister;
     EditText email,password;
     Button loginbtn;
     DBHelper DB;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
-
+        serviceproviderregister = findViewById(R.id.serviceproviderregister);
         loginbtn = findViewById(R.id.loginbtn);
         DB =new DBHelper(this);
         signup = findViewById(R.id.signup);
@@ -81,6 +81,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,register.class);
+                startActivity(intent);
+            }
+        });
+
+        serviceproviderregister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,serviceproviderregister.class);
                 startActivity(intent);
             }
         });
