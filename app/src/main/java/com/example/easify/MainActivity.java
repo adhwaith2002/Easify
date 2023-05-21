@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     if(checkemailpassword1 == true){
                         Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this,userdashboard.class);
+                        intent.putExtra("key_email",email1);
                         startActivity(intent);
                     }
                     else {

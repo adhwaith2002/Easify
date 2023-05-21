@@ -19,6 +19,7 @@ public class plumber extends AppCompatActivity implements NavigationView.OnNavig
     DrawerLayout drawerLayout_plumber;
     NavigationView navigationView_plumber;
     Toolbar toolbar_plumber;
+    String email;
 
 
 
@@ -29,7 +30,7 @@ public class plumber extends AppCompatActivity implements NavigationView.OnNavig
         drawerLayout_plumber = findViewById(R.id.drawerlayout_plumber);
         navigationView_plumber = findViewById(R.id.navview_plumber);
         toolbar_plumber = findViewById(R.id.toolbar_plumber);
-
+        email = getIntent().getStringExtra("key_email");
 
 
         setSupportActionBar(toolbar_plumber);
@@ -58,10 +59,12 @@ public class plumber extends AppCompatActivity implements NavigationView.OnNavig
         switch (menuItem.getItemId()){
             case R.id.navhome:
                 Intent intent1 = new Intent(plumber.this,userdashboard.class);
+                intent1.putExtra("key_email",email);
                 startActivity(intent1);
                 break;
             case R.id.navservices:
                 Intent intent2 = new Intent(plumber.this,userdashboard.class);
+                intent2.putExtra("key_email",email);
                 startActivity(intent2);
                 break;
             case R.id.navnotification:

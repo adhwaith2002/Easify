@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DBNAME="easify.db";
@@ -313,5 +315,22 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+
+    public ArrayList<UserModel> fetchUser(String email){
+      SQLiteDatabase db = this.getReadableDatabase();
+      Cursor cursor = db.rawQuery("select * from users where email=?",new String[]{email});
+      ArrayList<UserModel> arrUser = new ArrayList<>();
+      while(cursor.moveToNext()){
+       UserModel model = new UserModel();
+       model.username = cursor.getString(0);
+       model.email = cursor.getString(1);
+       model.password = cursor.getString(2);
+       model.mobile = cursor.getString(3);
+       model.address = cursor.getString(4);
+       model.city = cursor.getString(5);
+       arrUser.add(model);
+      }
+      return arrUser;
     }
 }

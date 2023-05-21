@@ -12,14 +12,20 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class userdashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    TextView dashboardemail,dashboarduser;
+    String email;
+    DBHelper DB;
 
     ImageView plumberimage,paintingimage,carmechanicimage,electricianimage,housecleaningimage,applianceimage,treecuttingimage,gardeningimage,cookimage,driverimage;
 
@@ -27,6 +33,7 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userdashboard);
+
         drawerLayout = findViewById(R.id.drawerlayout);
         navigationView = findViewById(R.id.navview);
         toolbar = findViewById(R.id.toolbar);
@@ -40,11 +47,23 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
         gardeningimage = findViewById(R.id.gardeningimage);
         cookimage = findViewById(R.id.cookimage);
         driverimage = findViewById(R.id.driverimage);
+        DB =new DBHelper(this);
+
+        email = getIntent().getStringExtra("key_email");
+
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        if (email != null) {
+            arrUser = DB.fetchUser(email);
+        } else {
+            // Handle the case when the email is null
+        }
+        String username = arrUser.get(0).username;
 
         plumberimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(userdashboard.this,plumber.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
@@ -120,6 +139,9 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
             }
         });
 
+
+
+
         setSupportActionBar(toolbar);
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
@@ -127,6 +149,11 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+        dashboardemail = headerView.findViewById(R.id.dashboardemail);
+        dashboarduser = headerView.findViewById(R.id.dashboarduser);
+        dashboardemail.setText(email);
+        dashboarduser.setText(username);
     }
 
     @Override
