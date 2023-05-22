@@ -11,14 +11,22 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class electrician extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout_electrician;
     NavigationView navigationView_electrician;
     Toolbar toolbar_electrician;
+
+    String email;
+    TextView dashboardemail,dashboarduser;
+    DBHelper DB;
 
 
     @SuppressLint("MissingInflatedId")
@@ -30,6 +38,16 @@ public class electrician extends AppCompatActivity implements NavigationView.OnN
         drawerLayout_electrician = findViewById(R.id.drawerlayout_electrician);
         navigationView_electrician = findViewById(R.id.navview_electrician);
         toolbar_electrician = findViewById(R.id.toolbar_electrician);
+        DB =new DBHelper(this);
+        email = getIntent().getStringExtra("key_email");
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        if (email != null) {
+            arrUser = DB.fetchUser(email);
+        } else {
+            // Handle the case when the email is null
+        }
+        String username = arrUser.get(0).username;
+
 
         setSupportActionBar(toolbar_electrician);
         navigationView_electrician.bringToFront();
@@ -38,6 +56,11 @@ public class electrician extends AppCompatActivity implements NavigationView.OnN
         toggle.syncState();
 
         navigationView_electrician.setNavigationItemSelectedListener(this);
+        View headerView = navigationView_electrician.getHeaderView(0);
+        dashboardemail = headerView.findViewById(R.id.dashboardemail);
+        dashboarduser = headerView.findViewById(R.id.dashboarduser);
+        dashboardemail.setText(email);
+        dashboarduser.setText(username);
 
     }
     @Override
@@ -56,10 +79,12 @@ public class electrician extends AppCompatActivity implements NavigationView.OnN
         switch (menuItem.getItemId()){
             case R.id.navhome:
                 Intent intent1 = new Intent(electrician.this,userdashboard.class);
+                intent1.putExtra("key_email",email);
                 startActivity(intent1);
                 break;
             case R.id.navservices:
                 Intent intent2 = new Intent(electrician.this,userdashboard.class);
+                intent2.putExtra("key_email",email);
                 startActivity(intent2);
                 break;
             case R.id.navnotification:

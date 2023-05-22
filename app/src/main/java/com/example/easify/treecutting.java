@@ -10,14 +10,21 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class treecutting extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout_treecutting;
     NavigationView navigationView_treecutting;
     Toolbar toolbar_treecutting;
+    String email;
+    TextView dashboardemail,dashboarduser;
+    DBHelper DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,16 @@ public class treecutting extends AppCompatActivity implements NavigationView.OnN
         drawerLayout_treecutting = findViewById(R.id.drawerlayout_treecutting);
         navigationView_treecutting = findViewById(R.id.navview_treecutting);
         toolbar_treecutting = findViewById(R.id.toolbar_treecutting);
+        DB =new DBHelper(this);
+        email = getIntent().getStringExtra("key_email");
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        if (email != null) {
+            arrUser = DB.fetchUser(email);
+        } else {
+            // Handle the case when the email is null
+        }
+        String username = arrUser.get(0).username;
+
 
         setSupportActionBar(toolbar_treecutting);
         navigationView_treecutting.bringToFront();
@@ -34,6 +51,11 @@ public class treecutting extends AppCompatActivity implements NavigationView.OnN
         toggle.syncState();
 
         navigationView_treecutting.setNavigationItemSelectedListener(this);
+        View headerView = navigationView_treecutting.getHeaderView(0);
+        dashboardemail = headerView.findViewById(R.id.dashboardemail);
+        dashboarduser = headerView.findViewById(R.id.dashboarduser);
+        dashboardemail.setText(email);
+        dashboarduser.setText(username);
     }
     @Override
     public void onBackPressed() {
@@ -51,10 +73,12 @@ public class treecutting extends AppCompatActivity implements NavigationView.OnN
         switch (menuItem.getItemId()){
             case R.id.navhome:
                 Intent intent1 = new Intent(treecutting.this,userdashboard.class);
+                intent1.putExtra("key_email",email);
                 startActivity(intent1);
                 break;
             case R.id.navservices:
                 Intent intent2 = new Intent(treecutting.this,userdashboard.class);
+                intent2.putExtra("key_email",email);
                 startActivity(intent2);
                 break;
             case R.id.navnotification:

@@ -10,9 +10,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class plumber extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -20,6 +24,8 @@ public class plumber extends AppCompatActivity implements NavigationView.OnNavig
     NavigationView navigationView_plumber;
     Toolbar toolbar_plumber;
     String email;
+    TextView dashboardemail,dashboarduser;
+    DBHelper DB;
 
 
 
@@ -30,7 +36,15 @@ public class plumber extends AppCompatActivity implements NavigationView.OnNavig
         drawerLayout_plumber = findViewById(R.id.drawerlayout_plumber);
         navigationView_plumber = findViewById(R.id.navview_plumber);
         toolbar_plumber = findViewById(R.id.toolbar_plumber);
+        DB =new DBHelper(this);
         email = getIntent().getStringExtra("key_email");
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        if (email != null) {
+            arrUser = DB.fetchUser(email);
+        } else {
+            // Handle the case when the email is null
+        }
+        String username = arrUser.get(0).username;
 
 
         setSupportActionBar(toolbar_plumber);
@@ -40,6 +54,11 @@ public class plumber extends AppCompatActivity implements NavigationView.OnNavig
         toggle.syncState();
 
         navigationView_plumber.setNavigationItemSelectedListener(this);
+        View headerView = navigationView_plumber.getHeaderView(0);
+        dashboardemail = headerView.findViewById(R.id.dashboardemail);
+        dashboarduser = headerView.findViewById(R.id.dashboarduser);
+        dashboardemail.setText(email);
+        dashboarduser.setText(username);
     }
 
     @Override

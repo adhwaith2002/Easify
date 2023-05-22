@@ -71,6 +71,7 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(userdashboard.this,painting.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
@@ -79,6 +80,7 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(userdashboard.this,carmechanic.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
@@ -87,6 +89,7 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(userdashboard.this,electrician.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
@@ -95,6 +98,7 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(userdashboard.this,housecleaning.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
@@ -103,6 +107,7 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(userdashboard.this,appliance.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
@@ -111,6 +116,7 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(userdashboard.this,treecutting.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
@@ -119,6 +125,7 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(userdashboard.this,gardening.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
@@ -127,6 +134,7 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(userdashboard.this,cook.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
@@ -135,6 +143,7 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(userdashboard.this,driver.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });

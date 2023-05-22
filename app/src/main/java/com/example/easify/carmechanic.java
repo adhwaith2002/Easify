@@ -11,14 +11,22 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class carmechanic extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout_carmechanic;
     NavigationView navigationView_carmechanic;
     Toolbar toolbar_carmechanic;
+
+    String email;
+    TextView dashboardemail,dashboarduser;
+    DBHelper DB;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -29,6 +37,16 @@ public class carmechanic extends AppCompatActivity implements NavigationView.OnN
         drawerLayout_carmechanic = findViewById(R.id.drawerlayout_carmechanic);
         navigationView_carmechanic = findViewById(R.id.navview_carmechanic);
         toolbar_carmechanic = findViewById(R.id.toolbar_carmechanic);
+        DB =new DBHelper(this);
+        email = getIntent().getStringExtra("key_email");
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        if (email != null) {
+            arrUser = DB.fetchUser(email);
+        } else {
+            // Handle the case when the email is null
+        }
+        String username = arrUser.get(0).username;
+
 
         setSupportActionBar(toolbar_carmechanic);
         navigationView_carmechanic.bringToFront();
@@ -37,6 +55,11 @@ public class carmechanic extends AppCompatActivity implements NavigationView.OnN
         toggle.syncState();
 
         navigationView_carmechanic.setNavigationItemSelectedListener(this);
+        View headerView = navigationView_carmechanic.getHeaderView(0);
+        dashboardemail = headerView.findViewById(R.id.dashboardemail);
+        dashboarduser = headerView.findViewById(R.id.dashboarduser);
+        dashboardemail.setText(email);
+        dashboarduser.setText(username);
     }
     @Override
     public void onBackPressed() {
@@ -54,10 +77,12 @@ public class carmechanic extends AppCompatActivity implements NavigationView.OnN
         switch (menuItem.getItemId()){
             case R.id.navhome:
                 Intent intent1 = new Intent(carmechanic.this,userdashboard.class);
+                intent1.putExtra("key_email",email);
                 startActivity(intent1);
                 break;
             case R.id.navservices:
                 Intent intent2 = new Intent(carmechanic.this,userdashboard.class);
+                intent2.putExtra("key_email",email);
                 startActivity(intent2);
                 break;
             case R.id.navnotification:

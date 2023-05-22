@@ -333,4 +333,21 @@ public class DBHelper extends SQLiteOpenHelper {
       }
       return arrUser;
     }
+    public  ArrayList<PlumberModel> fetchPlumber(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from plumber",null);
+        ArrayList<PlumberModel> arrPlumber = new ArrayList<>();
+        while(cursor.moveToNext()){
+            PlumberModel model = new PlumberModel();
+            model.plumber_username = cursor.getString(0);
+            model.plumber_email = cursor.getString(1);
+            model.plumber_password = cursor.getString(2);
+            model.plumber_mobile = cursor.getString(3);
+            model.plumber_address = cursor.getString(4);
+            model.plumber_city = cursor.getString(5);
+            arrPlumber.add(model);
+        }
+        return arrPlumber;
+
+    }
 }
