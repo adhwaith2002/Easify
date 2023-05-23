@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,7 @@ public class painting extends AppCompatActivity implements NavigationView.OnNavi
     String email;
     TextView dashboardemail,dashboarduser;
     DBHelper DB;
-
+    Button paintingbook;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class painting extends AppCompatActivity implements NavigationView.OnNavi
 
         drawerLayout_painting = findViewById(R.id.drawerlayout_painting);
         navigationView_painting = findViewById(R.id.navview_painting);
+        paintingbook = findViewById(R.id.paintingbook);
         toolbar_painting = findViewById(R.id.toolbar_painting);
         DB =new DBHelper(this);
         email = getIntent().getStringExtra("key_email");
@@ -60,7 +62,13 @@ public class painting extends AppCompatActivity implements NavigationView.OnNavi
         dashboarduser = headerView.findViewById(R.id.dashboarduser);
         dashboardemail.setText(email);
         dashboarduser.setText(username);
-
+        paintingbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(painting.this,paintinglist.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -47,8 +47,8 @@ public class plumberlist extends AppCompatActivity {
             while (cursor.moveToNext())
             {
                 plumber_name.add(cursor.getString(0));
-                plumber_mobile.add(cursor.getString(3));
                 plumber_email.add(cursor.getString(1));
+                plumber_mobile.add(cursor.getString(3));
                 plumber_city.add(cursor.getString(5));
             }
         }

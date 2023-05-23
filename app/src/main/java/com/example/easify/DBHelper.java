@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -339,15 +340,57 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
-    public boolean updatePlumberStatus(String email, int status) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("plumber_status", status);
+    public Cursor fetchPainter(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from painter",null);
+        return cursor;
 
-        int rowsAffected = db.update("plumber", values, "plumber_email=?", new String[]{email});
-        return rowsAffected > 0;
+    }
+    public Cursor fetchCarmechanic(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from carmechanic",null);
+        return cursor;
+
+    }
+    public Cursor fetchElectrician(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from electrician",null);
+        return cursor;
+
     }
 
+        public boolean updatePlumberStatus(String email, int status) {
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("plumber_status", status);
+            int rowsAffected = db.update("plumber", values, "plumber_email=?", new String[]{email});
+            db.close();
+            return rowsAffected > 0;
+        }
+        public boolean updatePainterStatus(String email, int status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("painter_status", status);
+        int rowsAffected = db.update("painter", values, "painter_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+        public boolean updateCarmechanicStatus(String email, int status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("carmechanic_status", status);
+        int rowsAffected = db.update("carmechanic", values, "carmechanic_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+        public boolean updateElectricianStatus(String email, int status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("electrician_status", status);
+        int rowsAffected = db.update("electrician", values, "electrician_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
 
 
 

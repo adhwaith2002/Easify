@@ -1,6 +1,7 @@
 package com.example.easify;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,8 +41,10 @@ public class AdapterPlumber extends RecyclerView.Adapter<AdapterPlumber.ViewHold
           holder.bookPlumberButton.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-                    int clickedPosition = (int) v.getTag();
-                    String email = plumber_email.get(clickedPosition);
+                    String email = (String) v.getTag();
+                    Log.d("Email", email);
+
+                    // Update the plumber status in the database
                     boolean success = DB.updatePlumberStatus(email, 1);
 
                     if (success) {
@@ -52,6 +55,7 @@ public class AdapterPlumber extends RecyclerView.Adapter<AdapterPlumber.ViewHold
                }
           });
      }
+
 
      @Override
      public int getItemCount() {
@@ -73,12 +77,11 @@ public class AdapterPlumber extends RecyclerView.Adapter<AdapterPlumber.ViewHold
 
           public void bindData(int position) {
                nameTextView.setText(plumber_name.get(position));
-               mobileTextView.setText(plumber_mobile.get(position));
-               emailTextView.setText(plumber_email.get(position));
+               emailTextView.setText(plumber_mobile.get(position)); //plumber_mobile and plumber_email are interchanged
+               mobileTextView.setText(plumber_email.get(position));
                cityTextView.setText(plumber_city.get(position));
 
-               // Set the tag with the position on the button
-               bookPlumberButton.setTag(position);
+               bookPlumberButton.setTag(plumber_mobile.get(position));
           }
      }
 }

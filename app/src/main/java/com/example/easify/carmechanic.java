@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ public class carmechanic extends AppCompatActivity implements NavigationView.OnN
     DrawerLayout drawerLayout_carmechanic;
     NavigationView navigationView_carmechanic;
     Toolbar toolbar_carmechanic;
-
+    Button carmechanicbook;
     String email;
     TextView dashboardemail,dashboarduser;
     DBHelper DB;
@@ -36,6 +37,7 @@ public class carmechanic extends AppCompatActivity implements NavigationView.OnN
 
         drawerLayout_carmechanic = findViewById(R.id.drawerlayout_carmechanic);
         navigationView_carmechanic = findViewById(R.id.navview_carmechanic);
+        carmechanicbook = findViewById(R.id.carmechanicbook);
         toolbar_carmechanic = findViewById(R.id.toolbar_carmechanic);
         DB =new DBHelper(this);
         email = getIntent().getStringExtra("key_email");
@@ -60,6 +62,13 @@ public class carmechanic extends AppCompatActivity implements NavigationView.OnN
         dashboarduser = headerView.findViewById(R.id.dashboarduser);
         dashboardemail.setText(email);
         dashboarduser.setText(username);
+        carmechanicbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(carmechanic.this,carmechaniclist.class);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public void onBackPressed() {

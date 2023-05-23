@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ public class electrician extends AppCompatActivity implements NavigationView.OnN
     DrawerLayout drawerLayout_electrician;
     NavigationView navigationView_electrician;
     Toolbar toolbar_electrician;
-
+    Button electricianbook;
     String email;
     TextView dashboardemail,dashboarduser;
     DBHelper DB;
@@ -38,6 +39,7 @@ public class electrician extends AppCompatActivity implements NavigationView.OnN
         drawerLayout_electrician = findViewById(R.id.drawerlayout_electrician);
         navigationView_electrician = findViewById(R.id.navview_electrician);
         toolbar_electrician = findViewById(R.id.toolbar_electrician);
+        electricianbook = findViewById(R.id.electricianbook);
         DB =new DBHelper(this);
         email = getIntent().getStringExtra("key_email");
         ArrayList<UserModel> arrUser = new ArrayList<>();
@@ -61,6 +63,13 @@ public class electrician extends AppCompatActivity implements NavigationView.OnN
         dashboarduser = headerView.findViewById(R.id.dashboarduser);
         dashboardemail.setText(email);
         dashboarduser.setText(username);
+        electricianbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(electrician.this,electricianlist.class);
+                startActivity(intent);
+            }
+        });
 
     }
     @Override
