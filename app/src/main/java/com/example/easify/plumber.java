@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class plumber extends AppCompatActivity implements NavigationView.OnNavig
     String email;
     TextView dashboardemail,dashboarduser;
     DBHelper DB;
+    Button plumberbook;
 
 
 
@@ -35,6 +37,7 @@ public class plumber extends AppCompatActivity implements NavigationView.OnNavig
         setContentView(R.layout.activity_plumber);
         drawerLayout_plumber = findViewById(R.id.drawerlayout_plumber);
         navigationView_plumber = findViewById(R.id.navview_plumber);
+        plumberbook = findViewById(R.id.plumberbook);
         toolbar_plumber = findViewById(R.id.toolbar_plumber);
         DB =new DBHelper(this);
         email = getIntent().getStringExtra("key_email");
@@ -59,6 +62,13 @@ public class plumber extends AppCompatActivity implements NavigationView.OnNavig
         dashboarduser = headerView.findViewById(R.id.dashboarduser);
         dashboardemail.setText(email);
         dashboarduser.setText(username);
+        plumberbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(plumber.this,plumberlist.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

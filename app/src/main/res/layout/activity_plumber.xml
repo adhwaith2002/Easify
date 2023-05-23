@@ -8,6 +8,7 @@
     android:layout_weight="1"
     tools:context=".plumber"
     android:fitsSystemWindows="true"
+    tools:openDrawer="start"
     >
 
     <com.google.android.material.navigation.NavigationView

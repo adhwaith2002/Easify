@@ -3,7 +3,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string-array name="service_array">
-        <item >Service</item>
+        <item>Service</item>
         <item>Plumber</item>
         <item>Painting</item>
         <item>Car mechanic</item>
