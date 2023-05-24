@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ public class housecleaning extends AppCompatActivity implements NavigationView.O
     DrawerLayout drawerLayout_housecleaning;
     NavigationView navigationView_housecleaning;
     Toolbar toolbar_housecleaning;
-
+    Button housecleaningbook;
     String email;
     TextView dashboardemail,dashboarduser;
     DBHelper DB;
@@ -35,6 +36,7 @@ public class housecleaning extends AppCompatActivity implements NavigationView.O
         setContentView(R.layout.activity_housecleaning);
         drawerLayout_housecleaning = findViewById(R.id.drawerlayout_housecleaning);
         navigationView_housecleaning = findViewById(R.id.navview_housecleaning);
+        housecleaningbook = findViewById(R.id.housecleaningbook);
         toolbar_housecleaning = findViewById(R.id.toolbar_housecleaning);
         DB =new DBHelper(this);
         email = getIntent().getStringExtra("key_email");
@@ -59,6 +61,13 @@ public class housecleaning extends AppCompatActivity implements NavigationView.O
         dashboarduser = headerView.findViewById(R.id.dashboarduser);
         dashboardemail.setText(email);
         dashboarduser.setText(username);
+        housecleaningbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(housecleaning.this,housecleaninglist.class);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public void onBackPressed() {

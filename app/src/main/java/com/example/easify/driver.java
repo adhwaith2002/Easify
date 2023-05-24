@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class driver extends AppCompatActivity implements NavigationView.OnNaviga
     String email;
     TextView dashboardemail,dashboarduser;
     DBHelper DB;
+    Button driverbook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class driver extends AppCompatActivity implements NavigationView.OnNaviga
         drawerLayout_driver = findViewById(R.id.drawerlayout_driver);
         navigationView_driver = findViewById(R.id.navview_driver);
         toolbar_driver = findViewById(R.id.toolbar_driver);
+        driverbook = findViewById(R.id.driverbook);
         DB =new DBHelper(this);
         email = getIntent().getStringExtra("key_email");
         ArrayList<UserModel> arrUser = new ArrayList<>();
@@ -56,6 +59,13 @@ public class driver extends AppCompatActivity implements NavigationView.OnNaviga
         dashboarduser = headerView.findViewById(R.id.dashboarduser);
         dashboardemail.setText(email);
         dashboarduser.setText(username);
+        driverbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(driver.this,driverlist.class);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public void onBackPressed() {

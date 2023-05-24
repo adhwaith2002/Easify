@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class treecutting extends AppCompatActivity implements NavigationView.OnN
     String email;
     TextView dashboardemail,dashboarduser;
     DBHelper DB;
+    Button treecuttingbook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class treecutting extends AppCompatActivity implements NavigationView.OnN
         setContentView(R.layout.activity_treecutting);
         drawerLayout_treecutting = findViewById(R.id.drawerlayout_treecutting);
         navigationView_treecutting = findViewById(R.id.navview_treecutting);
+        treecuttingbook = findViewById(R.id.treecuttingbook);
         toolbar_treecutting = findViewById(R.id.toolbar_treecutting);
         DB =new DBHelper(this);
         email = getIntent().getStringExtra("key_email");
@@ -56,6 +59,13 @@ public class treecutting extends AppCompatActivity implements NavigationView.OnN
         dashboarduser = headerView.findViewById(R.id.dashboarduser);
         dashboardemail.setText(email);
         dashboarduser.setText(username);
+        treecuttingbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(treecutting.this,treecuttinglist.class);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public void onBackPressed() {

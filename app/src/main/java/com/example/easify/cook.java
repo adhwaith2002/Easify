@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class cook extends AppCompatActivity implements NavigationView.OnNavigati
     String email;
     TextView dashboardemail,dashboarduser;
     DBHelper DB;
+    Button cookbook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class cook extends AppCompatActivity implements NavigationView.OnNavigati
         drawerLayout_cook = findViewById(R.id.drawerlayout_cook);
         navigationView_cook = findViewById(R.id.navview_cook);
         toolbar_cook = findViewById(R.id.toolbar_cook);
+        cookbook = findViewById(R.id.cookbook);
         DB =new DBHelper(this);
         email = getIntent().getStringExtra("key_email");
         ArrayList<UserModel> arrUser = new ArrayList<>();
@@ -56,6 +59,13 @@ public class cook extends AppCompatActivity implements NavigationView.OnNavigati
         dashboarduser = headerView.findViewById(R.id.dashboarduser);
         dashboardemail.setText(email);
         dashboarduser.setText(username);
+        cookbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(cook.this,cooklist.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

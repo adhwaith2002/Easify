@@ -358,6 +358,43 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+    public Cursor fetchHousecleaning(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from housecleaner",null);
+        return cursor;
+
+    }
+
+    public Cursor fetchAppliance(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from appliancerepair",null);
+        return cursor;
+
+    }
+    public Cursor fetchTreecutting(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from treecutter",null);
+        return cursor;
+
+    }
+    public Cursor fetchGardening(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from gardener",null);
+        return cursor;
+
+    }
+    public Cursor fetchCook(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from cook",null);
+        return cursor;
+
+    }
+    public Cursor fetchDriver(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from driver",null);
+        return cursor;
+
+    }
 
         public boolean updatePlumberStatus(String email, int status) {
             SQLiteDatabase db = this.getWritableDatabase();
@@ -391,8 +428,55 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return rowsAffected > 0;
     }
+        public boolean updateHousecleaningStatus(String email, int status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("cleaner_status", status);
+        int rowsAffected = db.update("housecleaner", values, "cleaner_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+        public boolean updateApplianceStatus(String email, int status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("appliancerepair_status", status);
+        int rowsAffected = db.update("appliancerepair", values, "appliancerepair_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+        public boolean updateTreecuttingStatus(String email, int status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("treecutter_status", status);
+        int rowsAffected = db.update("treecutter", values, "treecutter_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+        public boolean updateGardeningStatus(String email, int status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("gardener_status", status);
+        int rowsAffected = db.update("gardener", values, "gardener_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
 
-
+       public boolean updateCookStatus(String email, int status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("cook_status", status);
+        int rowsAffected = db.update("cook", values, "cook_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+        public boolean updateDriverStatus(String email, int status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("driver_status", status);
+        int rowsAffected = db.update("driver", values, "driver_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
 
 
 }

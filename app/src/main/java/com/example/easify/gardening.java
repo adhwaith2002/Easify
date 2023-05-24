@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class gardening extends AppCompatActivity implements NavigationView.OnNav
     String email;
     TextView dashboardemail,dashboarduser;
     DBHelper DB;
+    Button gardeningbook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class gardening extends AppCompatActivity implements NavigationView.OnNav
         setContentView(R.layout.activity_gardening);
         drawerLayout_gardening = findViewById(R.id.drawerlayout_gardening);
         navigationView_gardening = findViewById(R.id.navview_gardening);
+        gardeningbook = findViewById(R.id.gardeningbook);
         toolbar_gardening = findViewById(R.id.toolbar_gardening);
         DB =new DBHelper(this);
         email = getIntent().getStringExtra("key_email");
@@ -56,6 +59,13 @@ public class gardening extends AppCompatActivity implements NavigationView.OnNav
         dashboarduser = headerView.findViewById(R.id.dashboarduser);
         dashboardemail.setText(email);
         dashboarduser.setText(username);
+        gardeningbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(gardening.this,gardeninglist.class);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public void onBackPressed() {

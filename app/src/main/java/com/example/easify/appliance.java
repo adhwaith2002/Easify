@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +25,7 @@ public class appliance extends AppCompatActivity implements NavigationView.OnNav
     DrawerLayout drawerLayout_appliance;
     NavigationView navigationView_appliance;
     Toolbar toolbar_appliance;
-
+    Button appliancebook;
     String email;
     TextView dashboardemail,dashboarduser;
     DBHelper DB;
@@ -36,6 +37,7 @@ public class appliance extends AppCompatActivity implements NavigationView.OnNav
         setContentView(R.layout.activity_appliance);
         drawerLayout_appliance = findViewById(R.id.drawerlayout_appliance);
         navigationView_appliance = findViewById(R.id.navview_appliance);
+        appliancebook = findViewById(R.id.appliancebook);
         toolbar_appliance = findViewById(R.id.toolbar_appliance);
         DB =new DBHelper(this);
         email = getIntent().getStringExtra("key_email");
@@ -60,6 +62,13 @@ public class appliance extends AppCompatActivity implements NavigationView.OnNav
         dashboarduser = headerView.findViewById(R.id.dashboarduser);
         dashboardemail.setText(email);
         dashboarduser.setText(username);
+        appliancebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(appliance.this,appliancelist.class);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public void onBackPressed() {

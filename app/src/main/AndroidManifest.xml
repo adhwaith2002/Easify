@@ -17,6 +17,24 @@
         tools:replace="android:appComponentFactory"
         tools:targetApi="31">
         <activity
+            android:name=".driverlist"
+            android:exported="false" />
+        <activity
+            android:name=".cooklist"
+            android:exported="false" />
+        <activity
+            android:name=".gardeninglist"
+            android:exported="false" />
+        <activity
+            android:name=".treecuttinglist"
+            android:exported="false" />
+        <activity
+            android:name=".appliancelist"
+            android:exported="false" />
+        <activity
+            android:name=".housecleaninglist"
+            android:exported="false" />
+        <activity
             android:name=".electricianlist"
             android:exported="false" />
         <activity
