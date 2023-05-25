@@ -6,10 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -523,6 +520,166 @@ public class DBHelper extends SQLiteOpenHelper {
        arrUser.add(model);
       }
       return arrUser;
+    }
+    public ArrayList<ServiceModel> collectPlumber(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from plumber where plumber_email=?",new String[]{email});
+        ArrayList<ServiceModel> arrService = new ArrayList<>();
+        while(cursor.moveToNext()){
+            ServiceModel model = new ServiceModel();
+            model.username = cursor.getString(0);
+            model.email = cursor.getString(1);
+            model.password = cursor.getString(2);
+            model.mobile = cursor.getString(3);
+            model.address = cursor.getString(4);
+            model.city = cursor.getString(5);
+            arrService.add(model);
+        }
+        return arrService;
+    }
+    public ArrayList<ServiceModel> collectPainter(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from painter where painter_email=?",new String[]{email});
+        ArrayList<ServiceModel> arrService = new ArrayList<>();
+        while(cursor.moveToNext()){
+            ServiceModel model = new ServiceModel();
+            model.username = cursor.getString(0);
+            model.email = cursor.getString(1);
+            model.password = cursor.getString(2);
+            model.mobile = cursor.getString(3);
+            model.address = cursor.getString(4);
+            model.city = cursor.getString(5);
+            arrService.add(model);
+        }
+        return arrService;
+    }
+    public ArrayList<ServiceModel> collectCarmechanic(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from carmechanic where carmechanic_email=?",new String[]{email});
+        ArrayList<ServiceModel> arrService = new ArrayList<>();
+        while(cursor.moveToNext()){
+            ServiceModel model = new ServiceModel();
+            model.username = cursor.getString(0);
+            model.email = cursor.getString(1);
+            model.password = cursor.getString(2);
+            model.mobile = cursor.getString(3);
+            model.address = cursor.getString(4);
+            model.city = cursor.getString(5);
+            arrService.add(model);
+        }
+        return arrService;
+    }
+    public ArrayList<ServiceModel> collectElectrician(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from electrician where electrician_email=?",new String[]{email});
+        ArrayList<ServiceModel> arrService = new ArrayList<>();
+        while(cursor.moveToNext()){
+            ServiceModel model = new ServiceModel();
+            model.username = cursor.getString(0);
+            model.email = cursor.getString(1);
+            model.password = cursor.getString(2);
+            model.mobile = cursor.getString(3);
+            model.address = cursor.getString(4);
+            model.city = cursor.getString(5);
+            arrService.add(model);
+        }
+        return arrService;
+    }
+    public ArrayList<ServiceModel> collectHousecleaner(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from housecleaner where cleaner_email=?",new String[]{email});
+        ArrayList<ServiceModel> arrService = new ArrayList<>();
+        while(cursor.moveToNext()){
+            ServiceModel model = new ServiceModel();
+            model.username = cursor.getString(0);
+            model.email = cursor.getString(1);
+            model.password = cursor.getString(2);
+            model.mobile = cursor.getString(3);
+            model.address = cursor.getString(4);
+            model.city = cursor.getString(5);
+            arrService.add(model);
+        }
+        return arrService;
+    }
+    public ArrayList<ServiceModel> collectAppliancerepair(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from appliancerepair where appliancerepair_email=?",new String[]{email});
+        ArrayList<ServiceModel> arrService = new ArrayList<>();
+        while(cursor.moveToNext()){
+            ServiceModel model = new ServiceModel();
+            model.username = cursor.getString(0);
+            model.email = cursor.getString(1);
+            model.password = cursor.getString(2);
+            model.mobile = cursor.getString(3);
+            model.address = cursor.getString(4);
+            model.city = cursor.getString(5);
+            arrService.add(model);
+        }
+        return arrService;
+    }
+    public ArrayList<ServiceModel> collectTreecutter(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from treecutter where treecutter_email=?",new String[]{email});
+        ArrayList<ServiceModel> arrService = new ArrayList<>();
+        while(cursor.moveToNext()){
+            ServiceModel model = new ServiceModel();
+            model.username = cursor.getString(0);
+            model.email = cursor.getString(1);
+            model.password = cursor.getString(2);
+            model.mobile = cursor.getString(3);
+            model.address = cursor.getString(4);
+            model.city = cursor.getString(5);
+            arrService.add(model);
+        }
+        return arrService;
+    }
+    public ArrayList<ServiceModel> collectGardener(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from gardener where gardener_email=?",new String[]{email});
+        ArrayList<ServiceModel> arrService = new ArrayList<>();
+        while(cursor.moveToNext()){
+            ServiceModel model = new ServiceModel();
+            model.username = cursor.getString(0);
+            model.email = cursor.getString(1);
+            model.password = cursor.getString(2);
+            model.mobile = cursor.getString(3);
+            model.address = cursor.getString(4);
+            model.city = cursor.getString(5);
+            arrService.add(model);
+        }
+        return arrService;
+    }
+    public ArrayList<ServiceModel> collectCook(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from cook where cook_email=?",new String[]{email});
+        ArrayList<ServiceModel> arrService = new ArrayList<>();
+        while(cursor.moveToNext()){
+            ServiceModel model = new ServiceModel();
+            model.username = cursor.getString(0);
+            model.email = cursor.getString(1);
+            model.password = cursor.getString(2);
+            model.mobile = cursor.getString(3);
+            model.address = cursor.getString(4);
+            model.city = cursor.getString(5);
+            arrService.add(model);
+        }
+        return arrService;
+    }
+    public ArrayList<ServiceModel> collectDriver(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from driver where driver_email=?",new String[]{email});
+        ArrayList<ServiceModel> arrService = new ArrayList<>();
+        while(cursor.moveToNext()){
+            ServiceModel model = new ServiceModel();
+            model.username = cursor.getString(0);
+            model.email = cursor.getString(1);
+            model.password = cursor.getString(2);
+            model.mobile = cursor.getString(3);
+            model.address = cursor.getString(4);
+            model.city = cursor.getString(5);
+            arrService.add(model);
+        }
+        return arrService;
     }
     public Cursor fetchPlumber(){
         SQLiteDatabase db = this.getReadableDatabase();

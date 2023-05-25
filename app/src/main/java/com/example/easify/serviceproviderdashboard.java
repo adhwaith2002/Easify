@@ -23,7 +23,7 @@ public class serviceproviderdashboard extends AppCompatActivity implements Navig
     DrawerLayout drawerLayout_serviceproviderdashboard;
     NavigationView navigationView_serviceproviderdashboard;
     Toolbar toolbar_serviceproviderdashboard;
-    String email;
+    String email,table,name;
     TextView dashboardservicename,dashboardserviceemail;
     DBHelper DB;
     Button viewappointment;
@@ -37,16 +37,59 @@ public class serviceproviderdashboard extends AppCompatActivity implements Navig
         toolbar_serviceproviderdashboard = findViewById(R.id.toolbar_serviceproviderdashboard);
         viewappointment = findViewById(R.id.viewappointment);
         DB =new DBHelper(this);
+        table = getIntent().getStringExtra("key_table");
         email = getIntent().getStringExtra("key_email");
-        //ArrayList<UserModel> arrUser = new ArrayList<>();
-        //if (email != null) {
-          //  arrUser = DB.fetchUser(email);
-        //} else {
-            // Handle the case when the email is null
-        //}
-        //String username = arrUser.get(0).username;
 
-
+        if ("plumber".equals(table)){
+            ArrayList<ServiceModel> arrService = new ArrayList<>();
+            arrService = DB.collectPlumber(email);
+            name = arrService.get(0).username;
+        }
+        else if("painter".equals(table)){
+            ArrayList<ServiceModel> arrService = new ArrayList<>();
+            arrService = DB.collectPainter(email);
+            name = arrService.get(0).username;
+        }
+        else if("carmechanic".equals(table)){
+            ArrayList<ServiceModel> arrService = new ArrayList<>();
+            arrService = DB.collectCarmechanic(email);
+            name = arrService.get(0).username;
+        }
+        else if("electrician".equals(table)){
+            ArrayList<ServiceModel> arrService = new ArrayList<>();
+            arrService = DB.collectElectrician(email);
+            name = arrService.get(0).username;
+        }
+        else if("housecleaner".equals(table)){
+            ArrayList<ServiceModel> arrService = new ArrayList<>();
+            arrService = DB.collectHousecleaner(email);
+            name = arrService.get(0).username;
+        }
+        else if("appliancerepair".equals(table)){
+            ArrayList<ServiceModel> arrService = new ArrayList<>();
+            arrService = DB.collectAppliancerepair(email);
+            name = arrService.get(0).username;
+        }
+        else if("treecutter".equals(table)){
+            ArrayList<ServiceModel> arrService = new ArrayList<>();
+            arrService = DB.collectTreecutter(email);
+            name = arrService.get(0).username;
+        }
+        else if("gardener".equals(table)){
+            ArrayList<ServiceModel> arrService = new ArrayList<>();
+            arrService = DB.collectGardener(email);
+            name = arrService.get(0).username;
+        }
+        else if("cook".equals(table)){
+            ArrayList<ServiceModel> arrService = new ArrayList<>();
+            arrService = DB.collectCook(email);
+            name = arrService.get(0).username;
+        }
+        else if("driver".equals(table)){
+            ArrayList<ServiceModel> arrService = new ArrayList<>();
+            arrService = DB.collectDriver(email);
+            name = arrService.get(0).username;
+        }
         setSupportActionBar(toolbar_serviceproviderdashboard);
         navigationView_serviceproviderdashboard.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout_serviceproviderdashboard, toolbar_serviceproviderdashboard, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -58,7 +101,7 @@ public class serviceproviderdashboard extends AppCompatActivity implements Navig
         dashboardserviceemail = headerView.findViewById(R.id.dashboardserviceemail);
         dashboardservicename = headerView.findViewById(R.id.dashboardservicename);
         dashboardserviceemail.setText(email);
-        //dashboarduser.setText(username);
+        dashboardservicename.setText(name);
 
     }
 
