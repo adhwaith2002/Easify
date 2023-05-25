@@ -64,10 +64,80 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "All fields required", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Boolean checkemailpassword1 = DB.checkemailpassword(email1,password1);
+                    Boolean checkemailpassword1 = DB.checkemailpassword1(email1,password1);
+                    Boolean checkemailpassword2 = DB.checkemailpassword2(email1,password1);
+                    Boolean checkemailpassword3 = DB.checkemailpassword3(email1,password1);
+                    Boolean checkemailpassword4 = DB.checkemailpassword4(email1,password1);
+                    Boolean checkemailpassword5 = DB.checkemailpassword5(email1,password1);
+                    Boolean checkemailpassword6 = DB.checkemailpassword6(email1,password1);
+                    Boolean checkemailpassword7 = DB.checkemailpassword7(email1,password1);
+                    Boolean checkemailpassword8 = DB.checkemailpassword8(email1,password1);
+                    Boolean checkemailpassword9 = DB.checkemailpassword9(email1,password1);
+                    Boolean checkemailpassword10 = DB.checkemailpassword10(email1,password1);
+                    Boolean checkemailpassword11 = DB.checkemailpassword11(email1,password1);
                     if(checkemailpassword1 == true){
                         Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this,userdashboard.class);
+                        intent.putExtra("key_email",email1);
+                        startActivity(intent);
+                    }
+                    else if(checkemailpassword2 == true){
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,serviceproviderdashboard.class);
+                        intent.putExtra("key_email",email1);
+                        startActivity(intent);
+                    }
+                    else if(checkemailpassword3 == true){
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,serviceproviderdashboard.class);
+                        intent.putExtra("key_email",email1);
+                        startActivity(intent);
+                    }
+                    else if(checkemailpassword4 == true){
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,serviceproviderdashboard.class);
+                        intent.putExtra("key_email",email1);
+                        startActivity(intent);
+                    }
+                    else if(checkemailpassword5 == true){
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,serviceproviderdashboard.class);
+                        intent.putExtra("key_email",email1);
+                        startActivity(intent);
+                    }
+                    else if(checkemailpassword6 == true){
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,serviceproviderdashboard.class);
+                        intent.putExtra("key_email",email1);
+                        startActivity(intent);
+                    }
+                    else if(checkemailpassword7 == true){
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,serviceproviderdashboard.class);
+                        intent.putExtra("key_email",email1);
+                        startActivity(intent);
+                    }
+                    else if(checkemailpassword8 == true){
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,serviceproviderdashboard.class);
+                        intent.putExtra("key_email",email1);
+                        startActivity(intent);
+                    }
+                    else if(checkemailpassword9 == true){
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,serviceproviderdashboard.class);
+                        intent.putExtra("key_email",email1);
+                        startActivity(intent);
+                    }
+                    else if(checkemailpassword10 == true){
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,serviceproviderdashboard.class);
+                        intent.putExtra("key_email",email1);
+                        startActivity(intent);
+                    }
+                    else if(checkemailpassword11 == true){
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,serviceproviderdashboard.class);
                         intent.putExtra("key_email",email1);
                         startActivity(intent);
                     }

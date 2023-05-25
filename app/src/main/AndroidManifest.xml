@@ -17,6 +17,9 @@
         tools:replace="android:appComponentFactory"
         tools:targetApi="31">
         <activity
+            android:name=".serviceproviderdashboard"
+            android:exported="false" />
+        <activity
             android:name=".driverlist"
             android:exported="false" />
         <activity

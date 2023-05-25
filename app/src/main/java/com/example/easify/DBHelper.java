@@ -220,15 +220,35 @@ public class DBHelper extends SQLiteOpenHelper {
     public Boolean checkemail(String email){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from users where email=?",new String[]{email} );
-        if(cursor.getCount()>0)
+        Cursor cursor1 = db.rawQuery("select * from plumber where plumber_email=?",new String[]{email} );
+        Cursor cursor2 = db.rawQuery("select * from painter where painter_email=?",new String[]{email} );
+        Cursor cursor3 = db.rawQuery("select * from carmechanic where carmechanic_email=?",new String[]{email} );
+        Cursor cursor4 = db.rawQuery("select * from electrician where electrician_email=?",new String[]{email} );
+        Cursor cursor5 = db.rawQuery("select * from housecleaner where cleaner_email=?",new String[]{email} );
+        Cursor cursor6 = db.rawQuery("select * from appliancerepair where appliancerepair_email=?",new String[]{email} );
+        Cursor cursor7 = db.rawQuery("select * from treecutter where treecutter_email=?",new String[]{email} );
+        Cursor cursor8 = db.rawQuery("select * from gardener where gardener_email=?",new String[]{email} );
+        Cursor cursor9 = db.rawQuery("select * from cook where cook_email=?",new String[]{email} );
+        Cursor cursor10 = db.rawQuery("select * from driver where driver_email=?",new String[]{email} );
+        if(cursor.getCount()>0 || cursor1.getCount()>0 || cursor2.getCount()>0 || cursor3.getCount()>0 || cursor4.getCount()>0 || cursor5.getCount()>0 || cursor6.getCount()>0 || cursor7.getCount()>0 || cursor8.getCount()>0 || cursor9.getCount()>0 || cursor10.getCount()>0)
             return true;
         else
             return false;
     }
     public Boolean checkplumberemail(String email){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from plumber where plumber_email=?", new String[]{email});
-        if(cursor.getCount() > 0)
+        Cursor cursor = db.rawQuery("select * from users where email=?",new String[]{email} );
+        Cursor cursor1 = db.rawQuery("select * from plumber where plumber_email=?",new String[]{email} );
+        Cursor cursor2 = db.rawQuery("select * from painter where painter_email=?",new String[]{email} );
+        Cursor cursor3 = db.rawQuery("select * from carmechanic where carmechanic_email=?",new String[]{email} );
+        Cursor cursor4 = db.rawQuery("select * from electrician where electrician_email=?",new String[]{email} );
+        Cursor cursor5 = db.rawQuery("select * from housecleaner where cleaner_email=?",new String[]{email} );
+        Cursor cursor6 = db.rawQuery("select * from appliancerepair where appliancerepair_email=?",new String[]{email} );
+        Cursor cursor7 = db.rawQuery("select * from treecutter where treecutter_email=?",new String[]{email} );
+        Cursor cursor8 = db.rawQuery("select * from gardener where gardener_email=?",new String[]{email} );
+        Cursor cursor9 = db.rawQuery("select * from cook where cook_email=?",new String[]{email} );
+        Cursor cursor10 = db.rawQuery("select * from driver where driver_email=?",new String[]{email} );
+        if(cursor.getCount()>0 || cursor1.getCount()>0 || cursor2.getCount()>0 || cursor3.getCount()>0 || cursor4.getCount()>0 || cursor5.getCount()>0 || cursor6.getCount()>0 || cursor7.getCount()>0 || cursor8.getCount()>0 || cursor9.getCount()>0 || cursor10.getCount()>0)
             return true;
         else
             return false;
@@ -236,8 +256,18 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Boolean checkpainteremail(String email){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from painter where painter_email=?", new String[]{email});
-        if(cursor.getCount() > 0)
+        Cursor cursor = db.rawQuery("select * from users where email=?",new String[]{email} );
+        Cursor cursor1 = db.rawQuery("select * from plumber where plumber_email=?",new String[]{email} );
+        Cursor cursor2 = db.rawQuery("select * from painter where painter_email=?",new String[]{email} );
+        Cursor cursor3 = db.rawQuery("select * from carmechanic where carmechanic_email=?",new String[]{email} );
+        Cursor cursor4 = db.rawQuery("select * from electrician where electrician_email=?",new String[]{email} );
+        Cursor cursor5 = db.rawQuery("select * from housecleaner where cleaner_email=?",new String[]{email} );
+        Cursor cursor6 = db.rawQuery("select * from appliancerepair where appliancerepair_email=?",new String[]{email} );
+        Cursor cursor7 = db.rawQuery("select * from treecutter where treecutter_email=?",new String[]{email} );
+        Cursor cursor8 = db.rawQuery("select * from gardener where gardener_email=?",new String[]{email} );
+        Cursor cursor9 = db.rawQuery("select * from cook where cook_email=?",new String[]{email} );
+        Cursor cursor10 = db.rawQuery("select * from driver where driver_email=?",new String[]{email} );
+        if(cursor.getCount()>0 || cursor1.getCount()>0 || cursor2.getCount()>0 || cursor3.getCount()>0 || cursor4.getCount()>0 || cursor5.getCount()>0 || cursor6.getCount()>0 || cursor7.getCount()>0 || cursor8.getCount()>0 || cursor9.getCount()>0 || cursor10.getCount()>0)
             return true;
         else
             return false;
@@ -246,72 +276,232 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Boolean checkcarmechanicemail(String email){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from carmechanic where carmechanic_email=?", new String[]{email});
-        if(cursor.getCount() > 0)
+        Cursor cursor = db.rawQuery("select * from users where email=?",new String[]{email} );
+        Cursor cursor1 = db.rawQuery("select * from plumber where plumber_email=?",new String[]{email} );
+        Cursor cursor2 = db.rawQuery("select * from painter where painter_email=?",new String[]{email} );
+        Cursor cursor3 = db.rawQuery("select * from carmechanic where carmechanic_email=?",new String[]{email} );
+        Cursor cursor4 = db.rawQuery("select * from electrician where electrician_email=?",new String[]{email} );
+        Cursor cursor5 = db.rawQuery("select * from housecleaner where cleaner_email=?",new String[]{email} );
+        Cursor cursor6 = db.rawQuery("select * from appliancerepair where appliancerepair_email=?",new String[]{email} );
+        Cursor cursor7 = db.rawQuery("select * from treecutter where treecutter_email=?",new String[]{email} );
+        Cursor cursor8 = db.rawQuery("select * from gardener where gardener_email=?",new String[]{email} );
+        Cursor cursor9 = db.rawQuery("select * from cook where cook_email=?",new String[]{email} );
+        Cursor cursor10 = db.rawQuery("select * from driver where driver_email=?",new String[]{email} );
+        if(cursor.getCount()>0 || cursor1.getCount()>0 || cursor2.getCount()>0 || cursor3.getCount()>0 || cursor4.getCount()>0 || cursor5.getCount()>0 || cursor6.getCount()>0 || cursor7.getCount()>0 || cursor8.getCount()>0 || cursor9.getCount()>0 || cursor10.getCount()>0)
             return true;
         else
             return false;
     }
     public Boolean checkelectricianmail(String email){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from electrician where electrician_email=?", new String[]{email});
-        if(cursor.getCount() > 0)
+        Cursor cursor = db.rawQuery("select * from users where email=?",new String[]{email} );
+        Cursor cursor1 = db.rawQuery("select * from plumber where plumber_email=?",new String[]{email} );
+        Cursor cursor2 = db.rawQuery("select * from painter where painter_email=?",new String[]{email} );
+        Cursor cursor3 = db.rawQuery("select * from carmechanic where carmechanic_email=?",new String[]{email} );
+        Cursor cursor4 = db.rawQuery("select * from electrician where electrician_email=?",new String[]{email} );
+        Cursor cursor5 = db.rawQuery("select * from housecleaner where cleaner_email=?",new String[]{email} );
+        Cursor cursor6 = db.rawQuery("select * from appliancerepair where appliancerepair_email=?",new String[]{email} );
+        Cursor cursor7 = db.rawQuery("select * from treecutter where treecutter_email=?",new String[]{email} );
+        Cursor cursor8 = db.rawQuery("select * from gardener where gardener_email=?",new String[]{email} );
+        Cursor cursor9 = db.rawQuery("select * from cook where cook_email=?",new String[]{email} );
+        Cursor cursor10 = db.rawQuery("select * from driver where driver_email=?",new String[]{email} );
+        if(cursor.getCount()>0 || cursor1.getCount()>0 || cursor2.getCount()>0 || cursor3.getCount()>0 || cursor4.getCount()>0 || cursor5.getCount()>0 || cursor6.getCount()>0 || cursor7.getCount()>0 || cursor8.getCount()>0 || cursor9.getCount()>0 || cursor10.getCount()>0)
             return true;
         else
             return false;
     }
     public Boolean checkcleanermail(String email){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from housecleaner where cleaner_email=?", new String[]{email});
-        if(cursor.getCount() > 0)
+        Cursor cursor = db.rawQuery("select * from users where email=?",new String[]{email} );
+        Cursor cursor1 = db.rawQuery("select * from plumber where plumber_email=?",new String[]{email} );
+        Cursor cursor2 = db.rawQuery("select * from painter where painter_email=?",new String[]{email} );
+        Cursor cursor3 = db.rawQuery("select * from carmechanic where carmechanic_email=?",new String[]{email} );
+        Cursor cursor4 = db.rawQuery("select * from electrician where electrician_email=?",new String[]{email} );
+        Cursor cursor5 = db.rawQuery("select * from housecleaner where cleaner_email=?",new String[]{email} );
+        Cursor cursor6 = db.rawQuery("select * from appliancerepair where appliancerepair_email=?",new String[]{email} );
+        Cursor cursor7 = db.rawQuery("select * from treecutter where treecutter_email=?",new String[]{email} );
+        Cursor cursor8 = db.rawQuery("select * from gardener where gardener_email=?",new String[]{email} );
+        Cursor cursor9 = db.rawQuery("select * from cook where cook_email=?",new String[]{email} );
+        Cursor cursor10 = db.rawQuery("select * from driver where driver_email=?",new String[]{email} );
+        if(cursor.getCount()>0 || cursor1.getCount()>0 || cursor2.getCount()>0 || cursor3.getCount()>0 || cursor4.getCount()>0 || cursor5.getCount()>0 || cursor6.getCount()>0 || cursor7.getCount()>0 || cursor8.getCount()>0 || cursor9.getCount()>0 || cursor10.getCount()>0)
             return true;
         else
             return false;
     }
     public Boolean checkappliancerepairmail(String email){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from appliancerepair where appliancerepair_email=?", new String[]{email});
-        if(cursor.getCount() > 0)
+        Cursor cursor = db.rawQuery("select * from users where email=?",new String[]{email} );
+        Cursor cursor1 = db.rawQuery("select * from plumber where plumber_email=?",new String[]{email} );
+        Cursor cursor2 = db.rawQuery("select * from painter where painter_email=?",new String[]{email} );
+        Cursor cursor3 = db.rawQuery("select * from carmechanic where carmechanic_email=?",new String[]{email} );
+        Cursor cursor4 = db.rawQuery("select * from electrician where electrician_email=?",new String[]{email} );
+        Cursor cursor5 = db.rawQuery("select * from housecleaner where cleaner_email=?",new String[]{email} );
+        Cursor cursor6 = db.rawQuery("select * from appliancerepair where appliancerepair_email=?",new String[]{email} );
+        Cursor cursor7 = db.rawQuery("select * from treecutter where treecutter_email=?",new String[]{email} );
+        Cursor cursor8 = db.rawQuery("select * from gardener where gardener_email=?",new String[]{email} );
+        Cursor cursor9 = db.rawQuery("select * from cook where cook_email=?",new String[]{email} );
+        Cursor cursor10 = db.rawQuery("select * from driver where driver_email=?",new String[]{email} );
+        if(cursor.getCount()>0 || cursor1.getCount()>0 || cursor2.getCount()>0 || cursor3.getCount()>0 || cursor4.getCount()>0 || cursor5.getCount()>0 || cursor6.getCount()>0 || cursor7.getCount()>0 || cursor8.getCount()>0 || cursor9.getCount()>0 || cursor10.getCount()>0)
             return true;
         else
             return false;
     }
     public Boolean checktreecuttermail(String email){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from treecutter where treecutter_email=?", new String[]{email});
-        if(cursor.getCount() > 0)
+        Cursor cursor = db.rawQuery("select * from users where email=?",new String[]{email} );
+        Cursor cursor1 = db.rawQuery("select * from plumber where plumber_email=?",new String[]{email} );
+        Cursor cursor2 = db.rawQuery("select * from painter where painter_email=?",new String[]{email} );
+        Cursor cursor3 = db.rawQuery("select * from carmechanic where carmechanic_email=?",new String[]{email} );
+        Cursor cursor4 = db.rawQuery("select * from electrician where electrician_email=?",new String[]{email} );
+        Cursor cursor5 = db.rawQuery("select * from housecleaner where cleaner_email=?",new String[]{email} );
+        Cursor cursor6 = db.rawQuery("select * from appliancerepair where appliancerepair_email=?",new String[]{email} );
+        Cursor cursor7 = db.rawQuery("select * from treecutter where treecutter_email=?",new String[]{email} );
+        Cursor cursor8 = db.rawQuery("select * from gardener where gardener_email=?",new String[]{email} );
+        Cursor cursor9 = db.rawQuery("select * from cook where cook_email=?",new String[]{email} );
+        Cursor cursor10 = db.rawQuery("select * from driver where driver_email=?",new String[]{email} );
+        if(cursor.getCount()>0 || cursor1.getCount()>0 || cursor2.getCount()>0 || cursor3.getCount()>0 || cursor4.getCount()>0 || cursor5.getCount()>0 || cursor6.getCount()>0 || cursor7.getCount()>0 || cursor8.getCount()>0 || cursor9.getCount()>0 || cursor10.getCount()>0)
             return true;
         else
             return false;
     }
     public Boolean checkgardenermail(String email){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from gardener where gardener_email=?", new String[]{email});
-        if(cursor.getCount() > 0)
+        Cursor cursor = db.rawQuery("select * from users where email=?",new String[]{email} );
+        Cursor cursor1 = db.rawQuery("select * from plumber where plumber_email=?",new String[]{email} );
+        Cursor cursor2 = db.rawQuery("select * from painter where painter_email=?",new String[]{email} );
+        Cursor cursor3 = db.rawQuery("select * from carmechanic where carmechanic_email=?",new String[]{email} );
+        Cursor cursor4 = db.rawQuery("select * from electrician where electrician_email=?",new String[]{email} );
+        Cursor cursor5 = db.rawQuery("select * from housecleaner where cleaner_email=?",new String[]{email} );
+        Cursor cursor6 = db.rawQuery("select * from appliancerepair where appliancerepair_email=?",new String[]{email} );
+        Cursor cursor7 = db.rawQuery("select * from treecutter where treecutter_email=?",new String[]{email} );
+        Cursor cursor8 = db.rawQuery("select * from gardener where gardener_email=?",new String[]{email} );
+        Cursor cursor9 = db.rawQuery("select * from cook where cook_email=?",new String[]{email} );
+        Cursor cursor10 = db.rawQuery("select * from driver where driver_email=?",new String[]{email} );
+        if(cursor.getCount()>0 || cursor1.getCount()>0 || cursor2.getCount()>0 || cursor3.getCount()>0 || cursor4.getCount()>0 || cursor5.getCount()>0 || cursor6.getCount()>0 || cursor7.getCount()>0 || cursor8.getCount()>0 || cursor9.getCount()>0 || cursor10.getCount()>0)
             return true;
         else
             return false;
     }
     public Boolean checkcookmail(String email){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from cook where cook_email=?", new String[]{email});
-        if(cursor.getCount() > 0)
+        Cursor cursor = db.rawQuery("select * from users where email=?",new String[]{email} );
+        Cursor cursor1 = db.rawQuery("select * from plumber where plumber_email=?",new String[]{email} );
+        Cursor cursor2 = db.rawQuery("select * from painter where painter_email=?",new String[]{email} );
+        Cursor cursor3 = db.rawQuery("select * from carmechanic where carmechanic_email=?",new String[]{email} );
+        Cursor cursor4 = db.rawQuery("select * from electrician where electrician_email=?",new String[]{email} );
+        Cursor cursor5 = db.rawQuery("select * from housecleaner where cleaner_email=?",new String[]{email} );
+        Cursor cursor6 = db.rawQuery("select * from appliancerepair where appliancerepair_email=?",new String[]{email} );
+        Cursor cursor7 = db.rawQuery("select * from treecutter where treecutter_email=?",new String[]{email} );
+        Cursor cursor8 = db.rawQuery("select * from gardener where gardener_email=?",new String[]{email} );
+        Cursor cursor9 = db.rawQuery("select * from cook where cook_email=?",new String[]{email} );
+        Cursor cursor10 = db.rawQuery("select * from driver where driver_email=?",new String[]{email} );
+        if(cursor.getCount()>0 || cursor1.getCount()>0 || cursor2.getCount()>0 || cursor3.getCount()>0 || cursor4.getCount()>0 || cursor5.getCount()>0 || cursor6.getCount()>0 || cursor7.getCount()>0 || cursor8.getCount()>0 || cursor9.getCount()>0 || cursor10.getCount()>0)
             return true;
         else
             return false;
     }
     public Boolean checkdrivermail(String email){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from driver where driver_email=?", new String[]{email});
-        if(cursor.getCount() > 0)
+        Cursor cursor = db.rawQuery("select * from users where email=?",new String[]{email} );
+        Cursor cursor1 = db.rawQuery("select * from plumber where plumber_email=?",new String[]{email} );
+        Cursor cursor2 = db.rawQuery("select * from painter where painter_email=?",new String[]{email} );
+        Cursor cursor3 = db.rawQuery("select * from carmechanic where carmechanic_email=?",new String[]{email} );
+        Cursor cursor4 = db.rawQuery("select * from electrician where electrician_email=?",new String[]{email} );
+        Cursor cursor5 = db.rawQuery("select * from housecleaner where cleaner_email=?",new String[]{email} );
+        Cursor cursor6 = db.rawQuery("select * from appliancerepair where appliancerepair_email=?",new String[]{email} );
+        Cursor cursor7 = db.rawQuery("select * from treecutter where treecutter_email=?",new String[]{email} );
+        Cursor cursor8 = db.rawQuery("select * from gardener where gardener_email=?",new String[]{email} );
+        Cursor cursor9 = db.rawQuery("select * from cook where cook_email=?",new String[]{email} );
+        Cursor cursor10 = db.rawQuery("select * from driver where driver_email=?",new String[]{email} );
+        if(cursor.getCount()>0 || cursor1.getCount()>0 || cursor2.getCount()>0 || cursor3.getCount()>0 || cursor4.getCount()>0 || cursor5.getCount()>0 || cursor6.getCount()>0 || cursor7.getCount()>0 || cursor8.getCount()>0 || cursor9.getCount()>0 || cursor10.getCount()>0)
             return true;
         else
             return false;
     }
 
-    public Boolean checkemailpassword(String email,String password){
+    public Boolean checkemailpassword1(String email,String password){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from users where email=? and password=?",new String[]{email,password} );
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+    public Boolean checkemailpassword2(String email,String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from plumber where plumber_email=? and plumber_password=?",new String[]{email,password} );
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+    public Boolean checkemailpassword3(String email,String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from painter where painter_email=? and painter_password=?",new String[]{email,password} );
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+    public Boolean checkemailpassword4(String email,String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from carmechanic where carmechanic_email=? and carmechanic_password=?",new String[]{email,password} );
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+    public Boolean checkemailpassword5(String email,String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from electrician where electrician_email=? and electrician_password=?",new String[]{email,password} );
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+    public Boolean checkemailpassword6(String email,String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from housecleaner where cleaner_email=? and cleaner_password=?",new String[]{email,password} );
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+    public Boolean checkemailpassword7(String email,String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from appliancerepair where appliancerepair_email=? and appliancerepair_password=?",new String[]{email,password} );
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+    public Boolean checkemailpassword8(String email,String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from treecutter where treecutter_email=? and treecutter_password=?",new String[]{email,password} );
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+    public Boolean checkemailpassword9(String email,String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from gardener where gardener_email=? and gardener_password=?",new String[]{email,password} );
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+    public Boolean checkemailpassword10(String email,String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from cook where cook_email=? and cook_password=?",new String[]{email,password} );
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+    public Boolean checkemailpassword11(String email,String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from driver where driver_email=? and driver_password=?",new String[]{email,password} );
         if(cursor.getCount()>0)
             return true;
         else
