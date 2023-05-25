@@ -85,7 +85,7 @@ public class driver extends AppCompatActivity implements NavigationView.OnNaviga
                 startActivity(intent1);
                 break;
             case R.id.navservices:
-                Intent intent2 = new Intent(driver.this,userdashboard.class);
+                Intent intent2 = new Intent(driver.this,edituser.class);
                 intent2.putExtra("key_email",email);
                 startActivity(intent2);
                 break;

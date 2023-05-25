@@ -92,7 +92,7 @@ public class plumber extends AppCompatActivity implements NavigationView.OnNavig
                 startActivity(intent1);
                 break;
             case R.id.navservices:
-                Intent intent2 = new Intent(plumber.this,userdashboard.class);
+                Intent intent2 = new Intent(plumber.this,edituser.class);
                 intent2.putExtra("key_email",email);
                 startActivity(intent2);
                 break;

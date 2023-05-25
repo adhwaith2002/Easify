@@ -131,6 +131,10 @@ public class serviceproviderdashboard extends AppCompatActivity implements Navig
                 Toast.makeText(this, "No Notifications", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.servicenavedit:
+                 Intent intent1 = new Intent(serviceproviderdashboard.this,editservice.class);
+                 intent1.putExtra("key_email",email);
+                 intent1.putExtra("key_table",table);
+                 startActivity(intent1);
                 break;
             case R.id.servicenavhistory:
                 break;

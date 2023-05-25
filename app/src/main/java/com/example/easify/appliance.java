@@ -90,7 +90,7 @@ public class appliance extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(intent1);
                 break;
             case R.id.navservices:
-                Intent intent2 = new Intent(appliance.this,userdashboard.class);
+                Intent intent2 = new Intent(appliance.this,edituser.class);
                 intent2.putExtra("key_email",email);
                 startActivity(intent2);
                 break;

@@ -12,8 +12,8 @@
            />
         <item
             android:id="@+id/navservices"
-            android:title="Services"
-            android:icon="@drawable/baseline_miscellaneous_services_24"/>
+            android:title="Edit info"
+            android:icon="@drawable/baseline_edit_note_24"/>
 
 
         <item

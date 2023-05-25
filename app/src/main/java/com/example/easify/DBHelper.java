@@ -519,6 +519,7 @@ public class DBHelper extends SQLiteOpenHelper {
        model.city = cursor.getString(5);
        arrUser.add(model);
       }
+      cursor.close();
       return arrUser;
     }
     public ArrayList<ServiceModel> collectPlumber(String email){
@@ -535,6 +536,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.city = cursor.getString(5);
             arrService.add(model);
         }
+        cursor.close();
         return arrService;
     }
     public ArrayList<ServiceModel> collectPainter(String email){
@@ -551,6 +553,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.city = cursor.getString(5);
             arrService.add(model);
         }
+        cursor.close();
         return arrService;
     }
     public ArrayList<ServiceModel> collectCarmechanic(String email){
@@ -567,6 +570,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.city = cursor.getString(5);
             arrService.add(model);
         }
+        cursor.close();
         return arrService;
     }
     public ArrayList<ServiceModel> collectElectrician(String email){
@@ -583,6 +587,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.city = cursor.getString(5);
             arrService.add(model);
         }
+        cursor.close();
         return arrService;
     }
     public ArrayList<ServiceModel> collectHousecleaner(String email){
@@ -599,6 +604,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.city = cursor.getString(5);
             arrService.add(model);
         }
+        cursor.close();
         return arrService;
     }
     public ArrayList<ServiceModel> collectAppliancerepair(String email){
@@ -615,6 +621,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.city = cursor.getString(5);
             arrService.add(model);
         }
+        cursor.close();
         return arrService;
     }
     public ArrayList<ServiceModel> collectTreecutter(String email){
@@ -631,6 +638,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.city = cursor.getString(5);
             arrService.add(model);
         }
+        cursor.close();
         return arrService;
     }
     public ArrayList<ServiceModel> collectGardener(String email){
@@ -647,6 +655,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.city = cursor.getString(5);
             arrService.add(model);
         }
+        cursor.close();
         return arrService;
     }
     public ArrayList<ServiceModel> collectCook(String email){
@@ -663,6 +672,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.city = cursor.getString(5);
             arrService.add(model);
         }
+        cursor.close();
         return arrService;
     }
     public ArrayList<ServiceModel> collectDriver(String email){
@@ -679,6 +689,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.city = cursor.getString(5);
             arrService.add(model);
         }
+        cursor.close();
         return arrService;
     }
     public Cursor fetchPlumber(){

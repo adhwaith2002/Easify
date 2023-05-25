@@ -92,7 +92,7 @@ public class electrician extends AppCompatActivity implements NavigationView.OnN
                 startActivity(intent1);
                 break;
             case R.id.navservices:
-                Intent intent2 = new Intent(electrician.this,userdashboard.class);
+                Intent intent2 = new Intent(electrician.this,edituser.class);
                 intent2.putExtra("key_email",email);
                 startActivity(intent2);
                 break;

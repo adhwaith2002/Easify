@@ -90,7 +90,7 @@ public class carmechanic extends AppCompatActivity implements NavigationView.OnN
                 startActivity(intent1);
                 break;
             case R.id.navservices:
-                Intent intent2 = new Intent(carmechanic.this,userdashboard.class);
+                Intent intent2 = new Intent(carmechanic.this,edituser.class);
                 intent2.putExtra("key_email",email);
                 startActivity(intent2);
                 break;

@@ -86,7 +86,7 @@ public class cook extends AppCompatActivity implements NavigationView.OnNavigati
                 startActivity(intent1);
                 break;
             case R.id.navservices:
-                Intent intent2 = new Intent(cook.this,userdashboard.class);
+                Intent intent2 = new Intent(cook.this,edituser.class);
                 intent2.putExtra("key_email",email);
                 startActivity(intent2);
                 break;
