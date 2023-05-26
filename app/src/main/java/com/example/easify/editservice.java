@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class editservice extends AppCompatActivity implements NavigationView.OnN
     String email,table,name,mobile,address,city,password;
     DBHelper DB;
     EditText editserviceusername,editserviceemail,editservicemobile,editserviceaddress,editservicecity;
+    Button editservicebtn;
 
 
 
@@ -44,6 +46,7 @@ public class editservice extends AppCompatActivity implements NavigationView.OnN
         editservicemobile = findViewById(R.id.editservicemobile);
         editserviceaddress = findViewById(R.id.editserviceaddress);
         editservicecity = findViewById(R.id.editservicecity);
+        editservicebtn = findViewById(R.id.editservicebtn);
         DB =new DBHelper(this);
         table = getIntent().getStringExtra("key_table");
         email = getIntent().getStringExtra("key_email");
@@ -195,6 +198,206 @@ public class editservice extends AppCompatActivity implements NavigationView.OnN
         editservicemobile.setText(mobile);
         editserviceaddress.setText(address);
         editservicecity.setText(city);
+        if ("plumber".equals(table))
+        {
+            editservicebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String updatedUsername = editserviceusername.getText().toString();
+                    String updatedEmail = editserviceemail.getText().toString();
+                    String updatedMobile = editservicemobile.getText().toString();
+                    String updatedAddress = editserviceaddress.getText().toString();
+                    String updatedCity = editservicecity.getText().toString();
+
+                    boolean success = DB.editplumber(updatedUsername, updatedEmail, updatedMobile, updatedAddress, updatedCity,email);
+                    if (success) {
+                        Toast.makeText(editservice.this, "updated successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(editservice.this, "updation failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+        else if ("painter".equals(table))
+        {
+            editservicebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String updatedUsername = editserviceusername.getText().toString();
+                    String updatedEmail = editserviceemail.getText().toString();
+                    String updatedMobile = editservicemobile.getText().toString();
+                    String updatedAddress = editserviceaddress.getText().toString();
+                    String updatedCity = editservicecity.getText().toString();
+
+                    boolean success = DB.editpainter(updatedUsername, updatedEmail, updatedMobile, updatedAddress, updatedCity,email);
+                    if (success) {
+                        Toast.makeText(editservice.this, "updated successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(editservice.this, "updation failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+        else if ("carmechanic".equals(table))
+        {
+            editservicebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String updatedUsername = editserviceusername.getText().toString();
+                    String updatedEmail = editserviceemail.getText().toString();
+                    String updatedMobile = editservicemobile.getText().toString();
+                    String updatedAddress = editserviceaddress.getText().toString();
+                    String updatedCity = editservicecity.getText().toString();
+
+                    boolean success = DB.editcarmechanic(updatedUsername, updatedEmail, updatedMobile, updatedAddress, updatedCity,email);
+                    if (success) {
+                        Toast.makeText(editservice.this, "updated successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(editservice.this, "updation failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+        else if ("electrician".equals(table))
+        {
+            editservicebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String updatedUsername = editserviceusername.getText().toString();
+                    String updatedEmail = editserviceemail.getText().toString();
+                    String updatedMobile = editservicemobile.getText().toString();
+                    String updatedAddress = editserviceaddress.getText().toString();
+                    String updatedCity = editservicecity.getText().toString();
+
+                    boolean success = DB.editelectrician(updatedUsername, updatedEmail, updatedMobile, updatedAddress, updatedCity,email);
+                    if (success) {
+                        Toast.makeText(editservice.this, "updated successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(editservice.this, "updation failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+        else if ("housecleaner".equals(table))
+        {
+            editservicebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String updatedUsername = editserviceusername.getText().toString();
+                    String updatedEmail = editserviceemail.getText().toString();
+                    String updatedMobile = editservicemobile.getText().toString();
+                    String updatedAddress = editserviceaddress.getText().toString();
+                    String updatedCity = editservicecity.getText().toString();
+
+                    boolean success = DB.edithousecleaner(updatedUsername, updatedEmail, updatedMobile, updatedAddress, updatedCity,email);
+                    if (success) {
+                        Toast.makeText(editservice.this, "updated successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(editservice.this, "updation failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+        else if ("appliancerepair".equals(table))
+        {
+            editservicebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String updatedUsername = editserviceusername.getText().toString();
+                    String updatedEmail = editserviceemail.getText().toString();
+                    String updatedMobile = editservicemobile.getText().toString();
+                    String updatedAddress = editserviceaddress.getText().toString();
+                    String updatedCity = editservicecity.getText().toString();
+
+                    boolean success = DB.editappliancerepair(updatedUsername, updatedEmail, updatedMobile, updatedAddress, updatedCity,email);
+                    if (success) {
+                        Toast.makeText(editservice.this, "updated successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(editservice.this, "updation failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+        else if ("treecutter".equals(table))
+        {
+            editservicebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String updatedUsername = editserviceusername.getText().toString();
+                    String updatedEmail = editserviceemail.getText().toString();
+                    String updatedMobile = editservicemobile.getText().toString();
+                    String updatedAddress = editserviceaddress.getText().toString();
+                    String updatedCity = editservicecity.getText().toString();
+
+                    boolean success = DB.edittreecutter(updatedUsername, updatedEmail, updatedMobile, updatedAddress, updatedCity,email);
+                    if (success) {
+                        Toast.makeText(editservice.this, "updated successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(editservice.this, "updation failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+        else if ("gardener".equals(table))
+        {
+            editservicebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String updatedUsername = editserviceusername.getText().toString();
+                    String updatedEmail = editserviceemail.getText().toString();
+                    String updatedMobile = editservicemobile.getText().toString();
+                    String updatedAddress = editserviceaddress.getText().toString();
+                    String updatedCity = editservicecity.getText().toString();
+
+                    boolean success = DB.editgardener(updatedUsername, updatedEmail, updatedMobile, updatedAddress, updatedCity,email);
+                    if (success) {
+                        Toast.makeText(editservice.this, "updated successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(editservice.this, "updation failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+        else if ("cook".equals(table))
+        {
+            editservicebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String updatedUsername = editserviceusername.getText().toString();
+                    String updatedEmail = editserviceemail.getText().toString();
+                    String updatedMobile = editservicemobile.getText().toString();
+                    String updatedAddress = editserviceaddress.getText().toString();
+                    String updatedCity = editservicecity.getText().toString();
+
+                    boolean success = DB.editcook(updatedUsername, updatedEmail, updatedMobile, updatedAddress, updatedCity,email);
+                    if (success) {
+                        Toast.makeText(editservice.this, "updated successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(editservice.this, "updation failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+        else if ("driver".equals(table))
+        {
+            editservicebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String updatedUsername = editserviceusername.getText().toString();
+                    String updatedEmail = editserviceemail.getText().toString();
+                    String updatedMobile = editservicemobile.getText().toString();
+                    String updatedAddress = editserviceaddress.getText().toString();
+                    String updatedCity = editservicecity.getText().toString();
+
+                    boolean success = DB.editdriver(updatedUsername, updatedEmail, updatedMobile, updatedAddress, updatedCity,email);
+                    if (success) {
+                        Toast.makeText(editservice.this, "updated successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(editservice.this, "updation failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 
     @Override

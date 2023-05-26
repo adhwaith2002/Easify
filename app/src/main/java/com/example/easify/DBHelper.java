@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -752,6 +753,149 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor=db.rawQuery("Select * from driver",null);
         return cursor;
 
+    }
+    public boolean edituser(String username,String newemail,String mobile,String address,String city,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("username",username);
+        values.put("email",newemail);
+        values.put("mobile",mobile);
+        values.put("address",address);
+        values.put("city",city);
+        int rowsAffected = db.update("users", values, "email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+    public boolean editplumber(String username,String newemail,String mobile,String address,String city,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("plumber_name",username);
+        values.put("plumber_email",newemail);
+        values.put("plumber_mobile",mobile);
+        values.put("plumber_address",address);
+        values.put("plumber_city",city);
+        int rowsAffected = db.update("plumber", values, "plumber_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+    public boolean editpainter(String username,String newemail,String mobile,String address,String city,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("painter_name",username);
+        values.put("painter_email",newemail);
+        values.put("painter_mobile",mobile);
+        values.put("painter_address",address);
+        values.put("painter_city",city);
+        int rowsAffected = db.update("painter", values, "painter_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+    public boolean editcarmechanic(String username,String newemail,String mobile,String address,String city,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("carmechanic_name",username);
+        values.put("carmechanic_email",newemail);
+        values.put("carmechanic_mobile",mobile);
+        values.put("carmechanic_address",address);
+        values.put("carmechanic_city",city);
+        int rowsAffected = db.update("carmechanic", values, "carmechanic_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+    public boolean editelectrician(String username,String newemail,String mobile,String address,String city,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("electrician_name",username);
+        values.put("electrician_email",newemail);
+        values.put("electrician_mobile",mobile);
+        values.put("electrician_address",address);
+        values.put("electrician_city",city);
+        int rowsAffected = db.update("electrician", values, "electrician_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+    public boolean edithousecleaner(String username,String newemail,String mobile,String address,String city,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("cleaner_name",username);
+        values.put("cleaner_email",newemail);
+        values.put("cleaner_mobile",mobile);
+        values.put("cleaner_address",address);
+        values.put("cleaner_city",city);
+        int rowsAffected = db.update("housecleaner", values, "cleaner_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+    public boolean editappliancerepair(String username,String newemail,String mobile,String address,String city,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("appliancerepair_name",username);
+        values.put("appliancerepair_email",newemail);
+        values.put("appliancerepair_mobile",mobile);
+        values.put("appliancerepair_address",address);
+        values.put("appliancerepair_city",city);
+        int rowsAffected = db.update("appliancerepair", values, "appliancerepair_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+    public boolean edittreecutter(String username,String newemail,String mobile,String address,String city,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("treecutter_name",username);
+        values.put("treecutter_email",newemail);
+        values.put("treecutter_mobile",mobile);
+        values.put("treecutter_address",address);
+        values.put("treecutter_city",city);
+        int rowsAffected = db.update("treecutter", values, "treecutter_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+    public boolean editgardener(String username,String newemail,String mobile,String address,String city,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("gardener_name",username);
+        values.put("gardener_email",newemail);
+        values.put("gardener_mobile",mobile);
+        values.put("gardener_address",address);
+        values.put("gardener_city",city);
+        int rowsAffected = db.update("gardener", values, "gardener_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+    public boolean editcook(String username,String newemail,String mobile,String address,String city,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("cook_name",username);
+        values.put("cook_email",newemail);
+        values.put("cook_mobile",mobile);
+        values.put("cook_address",address);
+        values.put("cook_city",city);
+        int rowsAffected = db.update("cook", values, "cook_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+    public boolean editdriver(String username,String newemail,String mobile,String address,String city,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("driver_name",username);
+        values.put("driver_email",newemail);
+        values.put("driver_mobile",mobile);
+        values.put("driver_address",address);
+        values.put("driver_city",city);
+        int rowsAffected = db.update("driver", values, "driver_email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
     }
 
         public boolean updatePlumberStatus(String email, int status) {

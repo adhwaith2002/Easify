@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class edituser extends AppCompatActivity implements NavigationView.OnNavi
     String email,username,mobile,address,city,password;
     DBHelper DB;
     EditText editusername,editemail,editmobile,editaddress,editcity;
+    Button editbtn;
 
 
     @Override
@@ -43,6 +45,7 @@ public class edituser extends AppCompatActivity implements NavigationView.OnNavi
         editmobile = findViewById(R.id.editmobile);
         editaddress = findViewById(R.id.editaddress);
         editcity = findViewById(R.id.editcity);
+        editbtn=findViewById(R.id.editbtn);
         DB =new DBHelper(this);
 
         email = getIntent().getStringExtra("key_email");
@@ -73,9 +76,24 @@ public class edituser extends AppCompatActivity implements NavigationView.OnNavi
         editemail.setText(email);
         editmobile.setText(mobile);
         editaddress.setText(address);
-        editcity.setText(city);;
+        editcity.setText(city);
+        editbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String updatedUsername = editusername.getText().toString();
+                String updatedEmail = editemail.getText().toString();
+                String updatedMobile = editmobile.getText().toString();
+                String updatedAddress = editaddress.getText().toString();
+                String updatedCity = editcity.getText().toString();
 
-
+                boolean success = DB.edituser(updatedUsername, updatedEmail, updatedMobile, updatedAddress, updatedCity,email);
+                if (success) {
+                    Toast.makeText(edituser.this, "Updated sucessfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(edituser.this, "Failed to update", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
