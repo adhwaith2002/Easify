@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +27,8 @@ public class serviceproviderdashboard extends AppCompatActivity implements Navig
     String email,table,name;
     TextView dashboardservicename,dashboardserviceemail;
     DBHelper DB;
-    Button viewappointment;
+    Button viewappointment,statusbutton;
+    int status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class serviceproviderdashboard extends AppCompatActivity implements Navig
         navigationView_serviceproviderdashboard = findViewById(R.id.navview_serviceproviderdashboard);
         toolbar_serviceproviderdashboard = findViewById(R.id.toolbar_serviceproviderdashboard);
         viewappointment = findViewById(R.id.viewappointment);
+        statusbutton = findViewById(R.id.statusbutton);
         DB =new DBHelper(this);
         table = getIntent().getStringExtra("key_table");
         email = getIntent().getStringExtra("key_email");
@@ -43,52 +46,92 @@ public class serviceproviderdashboard extends AppCompatActivity implements Navig
         if ("plumber".equals(table)){
             ArrayList<ServiceModel> arrService = new ArrayList<>();
             arrService = DB.collectPlumber(email);
-            name = arrService.get(0).username;
+            if (!arrService.isEmpty()) {
+                ServiceModel serviceModel = arrService.get(0);
+                name = serviceModel.username;
+                status = serviceModel.status;
+            }
         }
         else if("painter".equals(table)){
             ArrayList<ServiceModel> arrService = new ArrayList<>();
             arrService = DB.collectPainter(email);
-            name = arrService.get(0).username;
+            if (!arrService.isEmpty()) {
+                ServiceModel serviceModel = arrService.get(0);
+                name = serviceModel.username;
+                status = serviceModel.status;
+            }
         }
         else if("carmechanic".equals(table)){
             ArrayList<ServiceModel> arrService = new ArrayList<>();
             arrService = DB.collectCarmechanic(email);
-            name = arrService.get(0).username;
+            if (!arrService.isEmpty()) {
+                ServiceModel serviceModel = arrService.get(0);
+                name = serviceModel.username;
+                status = serviceModel.status;
+            }
         }
         else if("electrician".equals(table)){
             ArrayList<ServiceModel> arrService = new ArrayList<>();
             arrService = DB.collectElectrician(email);
-            name = arrService.get(0).username;
+            if (!arrService.isEmpty()) {
+                ServiceModel serviceModel = arrService.get(0);
+                name = serviceModel.username;
+                status = serviceModel.status;
+            }
         }
         else if("housecleaner".equals(table)){
             ArrayList<ServiceModel> arrService = new ArrayList<>();
             arrService = DB.collectHousecleaner(email);
-            name = arrService.get(0).username;
+            if (!arrService.isEmpty()) {
+                ServiceModel serviceModel = arrService.get(0);
+                name = serviceModel.username;
+                status = serviceModel.status;
+            }
         }
         else if("appliancerepair".equals(table)){
             ArrayList<ServiceModel> arrService = new ArrayList<>();
             arrService = DB.collectAppliancerepair(email);
-            name = arrService.get(0).username;
+            if (!arrService.isEmpty()) {
+                ServiceModel serviceModel = arrService.get(0);
+                name = serviceModel.username;
+                status = serviceModel.status;
+            }
         }
         else if("treecutter".equals(table)){
             ArrayList<ServiceModel> arrService = new ArrayList<>();
             arrService = DB.collectTreecutter(email);
-            name = arrService.get(0).username;
+            if (!arrService.isEmpty()) {
+                ServiceModel serviceModel = arrService.get(0);
+                name = serviceModel.username;
+                status = serviceModel.status;
+            }
         }
         else if("gardener".equals(table)){
             ArrayList<ServiceModel> arrService = new ArrayList<>();
             arrService = DB.collectGardener(email);
-            name = arrService.get(0).username;
+            if (!arrService.isEmpty()) {
+                ServiceModel serviceModel = arrService.get(0);
+                name = serviceModel.username;
+                status = serviceModel.status;
+            }
         }
         else if("cook".equals(table)){
             ArrayList<ServiceModel> arrService = new ArrayList<>();
             arrService = DB.collectCook(email);
-            name = arrService.get(0).username;
+            if (!arrService.isEmpty()) {
+                ServiceModel serviceModel = arrService.get(0);
+                name = serviceModel.username;
+                status = serviceModel.status;
+            }
         }
         else if("driver".equals(table)){
             ArrayList<ServiceModel> arrService = new ArrayList<>();
             arrService = DB.collectDriver(email);
-            name = arrService.get(0).username;
+            if (!arrService.isEmpty()) {
+                ServiceModel serviceModel = arrService.get(0);
+                name = serviceModel.username;
+                status = serviceModel.status;
+            }
         }
         setSupportActionBar(toolbar_serviceproviderdashboard);
         navigationView_serviceproviderdashboard.bringToFront();
@@ -102,6 +145,262 @@ public class serviceproviderdashboard extends AppCompatActivity implements Navig
         dashboardservicename = headerView.findViewById(R.id.dashboardservicename);
         dashboardserviceemail.setText(email);
         dashboardservicename.setText(name);
+        statusbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if("plumber".equals(table)) {
+
+                    if (status == 0) {
+                        boolean success = DB.plumberstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to Active", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else if(status == 1)
+                    {
+
+                        boolean success = DB.plumberstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to  Not active", Toast.LENGTH_SHORT).show();
+                        }else
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                else if("painter".equals(table)) {
+
+                    if (status == 0) {
+                        boolean success = DB.painterstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to Active", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else if(status == 1)
+                    {
+
+                        boolean success = DB.painterstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to  Not active", Toast.LENGTH_SHORT).show();
+                        }else
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                else if("carmechanic".equals(table)) {
+
+                    if (status == 0) {
+                        boolean success = DB.carmechanicstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to Active", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else if(status == 1)
+                    {
+
+                        boolean success = DB.carmechanicstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to  Not active", Toast.LENGTH_SHORT).show();
+                        }else
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                else if("electrician".equals(table)) {
+
+                    if (status == 0) {
+                        boolean success = DB.electricianstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to Active", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else if(status == 1)
+                    {
+
+                        boolean success = DB.electricianstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to  Not active", Toast.LENGTH_SHORT).show();
+                        }else
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                else if("housecleaner".equals(table)) {
+
+                    if (status == 0) {
+                        boolean success = DB.housecleanerstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to Active", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else if(status == 1)
+                    {
+
+                        boolean success = DB.housecleanerstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to  Not active", Toast.LENGTH_SHORT).show();
+                        }else
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                else if("appliancerepair".equals(table)) {
+
+                    if (status == 0) {
+                        boolean success = DB.appliancerepairstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to Active", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else if(status == 1)
+                    {
+
+                        boolean success = DB.appliancerepairstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to  Not active", Toast.LENGTH_SHORT).show();
+                        }else
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                else if("treecutter".equals(table)) {
+
+                    if (status == 0) {
+                        boolean success = DB.treecutterstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to Active", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else if(status == 1)
+                    {
+
+                        boolean success = DB.treecutterstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to  Not active", Toast.LENGTH_SHORT).show();
+                        }else
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                else if("gardener".equals(table)) {
+
+                    if (status == 0) {
+                        boolean success = DB.gardenerstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to Active", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else if(status == 1)
+                    {
+
+                        boolean success = DB.gardenerstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to  Not active", Toast.LENGTH_SHORT).show();
+                        }else
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                else if("cook".equals(table)) {
+
+                    if (status == 0) {
+                        boolean success = DB.cookstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to Active", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else if(status == 1)
+                    {
+
+                        boolean success = DB.cookstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to  Not active", Toast.LENGTH_SHORT).show();
+                        }else
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                else if("driver".equals(table)) {
+
+                    if (status == 0) {
+                        boolean success = DB.driverstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to Active", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else if(status == 1)
+                    {
+
+                        boolean success = DB.driverstatus(email, status);
+                        if(success)
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "Status set to  Not active", Toast.LENGTH_SHORT).show();
+                        }else
+                        {
+                            Toast.makeText(serviceproviderdashboard.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+            }
+        });
 
     }
 

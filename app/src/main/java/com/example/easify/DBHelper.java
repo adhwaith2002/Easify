@@ -6,10 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
+
 
     public static final String DBNAME="easify.db";
     public DBHelper(Context context) {
@@ -535,6 +537,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.mobile = cursor.getString(3);
             model.address = cursor.getString(4);
             model.city = cursor.getString(5);
+            model.status=cursor.getInt(6);
             arrService.add(model);
         }
         cursor.close();
@@ -552,6 +555,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.mobile = cursor.getString(3);
             model.address = cursor.getString(4);
             model.city = cursor.getString(5);
+            model.status=cursor.getInt(6);
             arrService.add(model);
         }
         cursor.close();
@@ -569,6 +573,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.mobile = cursor.getString(3);
             model.address = cursor.getString(4);
             model.city = cursor.getString(5);
+            model.status=cursor.getInt(6);
             arrService.add(model);
         }
         cursor.close();
@@ -586,6 +591,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.mobile = cursor.getString(3);
             model.address = cursor.getString(4);
             model.city = cursor.getString(5);
+            model.status=cursor.getInt(6);
             arrService.add(model);
         }
         cursor.close();
@@ -603,6 +609,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.mobile = cursor.getString(3);
             model.address = cursor.getString(4);
             model.city = cursor.getString(5);
+            model.status=cursor.getInt(6);
             arrService.add(model);
         }
         cursor.close();
@@ -620,6 +627,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.mobile = cursor.getString(3);
             model.address = cursor.getString(4);
             model.city = cursor.getString(5);
+            model.status=cursor.getInt(6);
             arrService.add(model);
         }
         cursor.close();
@@ -637,6 +645,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.mobile = cursor.getString(3);
             model.address = cursor.getString(4);
             model.city = cursor.getString(5);
+            model.status=cursor.getInt(6);
             arrService.add(model);
         }
         cursor.close();
@@ -654,6 +663,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.mobile = cursor.getString(3);
             model.address = cursor.getString(4);
             model.city = cursor.getString(5);
+            model.status=cursor.getInt(6);
             arrService.add(model);
         }
         cursor.close();
@@ -671,6 +681,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.mobile = cursor.getString(3);
             model.address = cursor.getString(4);
             model.city = cursor.getString(5);
+            model.status=cursor.getInt(6);
             arrService.add(model);
         }
         cursor.close();
@@ -688,6 +699,7 @@ public class DBHelper extends SQLiteOpenHelper {
             model.mobile = cursor.getString(3);
             model.address = cursor.getString(4);
             model.city = cursor.getString(5);
+            model.status=cursor.getInt(6);
             arrService.add(model);
         }
         cursor.close();
@@ -897,7 +909,206 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return rowsAffected > 0;
     }
+     public boolean plumberstatus(String email,int status)
+     {
+         int rowsAffected=0;
+         SQLiteDatabase db = this.getWritableDatabase();
+         ContentValues values = new ContentValues();
+         if(status == 0)
+         {
 
+             values.put("plumber_status","1");
+              rowsAffected = db.update("plumber", values, "plumber_email=?", new String[]{email});
+             db.close();
+         }
+         else if(status == 1){
+
+             values.put("plumber_status","0");
+              rowsAffected = db.update("plumber", values, "plumber_email=?", new String[]{email});
+             db.close();
+         }
+         return rowsAffected > 0;
+     }
+    public boolean painterstatus(String email,int status)
+    {
+        int rowsAffected=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        if(status == 0)
+        {
+
+            values.put("painter_status","1");
+            rowsAffected = db.update("painter", values, "painter_email=?", new String[]{email});
+            db.close();
+        }
+        else if(status == 1){
+
+            values.put("painter_status","0");
+            rowsAffected = db.update("painter", values, "painter_email=?", new String[]{email});
+            db.close();
+        }
+        return rowsAffected > 0;
+    }
+    public boolean carmechanicstatus(String email,int status)
+    {
+        int rowsAffected=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        if(status == 0)
+        {
+
+            values.put("carmechanic_status","1");
+            rowsAffected = db.update("carmechanic", values, "carmechanic_email=?", new String[]{email});
+            db.close();
+        }
+        else if(status == 1){
+
+            values.put("carmechanic_status","0");
+            rowsAffected = db.update("carmechanic", values, "carmechanic_email=?", new String[]{email});
+            db.close();
+        }
+        return rowsAffected > 0;
+    }
+    public boolean electricianstatus(String email,int status)
+    {
+        int rowsAffected=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        if(status == 0)
+        {
+
+            values.put("electrician_status","1");
+            rowsAffected = db.update("electrician", values, "electrician_email=?", new String[]{email});
+            db.close();
+        }
+        else if(status == 1){
+
+            values.put("electrician_status","0");
+            rowsAffected = db.update("electrician", values, "electrician_email=?", new String[]{email});
+            db.close();
+        }
+        return rowsAffected > 0;
+    }
+    public boolean housecleanerstatus(String email,int status)
+    {
+        int rowsAffected=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        if(status == 0)
+        {
+
+            values.put("cleaner_status","1");
+            rowsAffected = db.update("housecleaner", values, "cleaner_email=?", new String[]{email});
+            db.close();
+        }
+        else if(status == 1){
+
+            values.put("cleaner_status","0");
+            rowsAffected = db.update("housecleaner", values, "cleaner_email=?", new String[]{email});
+            db.close();
+        }
+        return rowsAffected > 0;
+    }
+    public boolean appliancerepairstatus(String email,int status)
+    {
+        int rowsAffected=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        if(status == 0)
+        {
+
+            values.put("appliancerepair_status","1");
+            rowsAffected = db.update("appliancerepair", values, "appliancerepair_email=?", new String[]{email});
+            db.close();
+        }
+        else if(status == 1){
+
+            values.put("appliancerepair_status","0");
+            rowsAffected = db.update("appliancerepair", values, "appliancerepair_email=?", new String[]{email});
+            db.close();
+        }
+        return rowsAffected > 0;
+    }
+    public boolean treecutterstatus(String email,int status)
+    {
+        int rowsAffected=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        if(status == 0)
+        {
+
+            values.put("treecutter_status","1");
+            rowsAffected = db.update("treecutter", values, "treecutter_email=?", new String[]{email});
+            db.close();
+        }
+        else if(status == 1){
+
+            values.put("treecutter_status","0");
+            rowsAffected = db.update("treecutter", values, "treecutter_email=?", new String[]{email});
+            db.close();
+        }
+        return rowsAffected > 0;
+    }
+    public boolean gardenerstatus(String email,int status)
+    {
+        int rowsAffected=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        if(status == 0)
+        {
+
+            values.put("gardener_status","1");
+            rowsAffected = db.update("gardener", values, "gardener_email=?", new String[]{email});
+            db.close();
+        }
+        else if(status == 1){
+
+            values.put("gardener_status","0");
+            rowsAffected = db.update("gardener", values, "gardener_email=?", new String[]{email});
+            db.close();
+        }
+        return rowsAffected > 0;
+    }
+    public boolean cookstatus(String email,int status)
+    {
+        int rowsAffected=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        if(status == 0)
+        {
+
+            values.put("cook_status","1");
+            rowsAffected = db.update("cook", values, "cook_email=?", new String[]{email});
+            db.close();
+        }
+        else if(status == 1){
+
+            values.put("cook_status","0");
+            rowsAffected = db.update("cook", values, "cook_email=?", new String[]{email});
+            db.close();
+        }
+        return rowsAffected > 0;
+    }
+    public boolean driverstatus(String email,int status)
+    {
+        int rowsAffected=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        if(status == 0)
+        {
+
+            values.put("driver_status","1");
+            rowsAffected = db.update("driver", values, "driver_email=?", new String[]{email});
+            db.close();
+        }
+        else if(status == 1){
+
+            values.put("driver_status","0");
+            rowsAffected = db.update("driver", values, "driver_email=?", new String[]{email});
+            db.close();
+        }
+        return rowsAffected > 0;
+    }
         public boolean updatePlumberStatus(String email, int status) {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues values = new ContentValues();
