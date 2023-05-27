@@ -64,7 +64,7 @@ public class housecleaning extends AppCompatActivity implements NavigationView.O
         housecleaningbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(housecleaning.this,edituser.class);
+                Intent intent = new Intent(housecleaning.this,housecleaninglist.class);
                 startActivity(intent);
             }
         });

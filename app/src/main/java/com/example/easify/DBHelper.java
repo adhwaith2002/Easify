@@ -31,6 +31,17 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("create table gardener(gardener_name TEXT,gardener_email TEXT primary key,gardener_password TEXT,gardener_mobile TEXT,gardener_address TEXT,gardener_city TEXT,gardener_status INTEGER)");
         db.execSQL("create table cook(cook_name TEXT,cook_email TEXT primary key,cook_password TEXT,cook_mobile TEXT,cook_address TEXT,cook_city TEXT,cook_status INTEGER)");
         db.execSQL("create table driver(driver_name TEXT,driver_email TEXT primary key,driver_password TEXT,driver_mobile TEXT,driver_address TEXT,driver_city TEXT,driver_status INTEGER)");
+        db.execSQL("create table admin(admin_name TEXT,admin_email TEXT primary key,admin_password TEXT,admin_mobile TEXT,admin_address TEXT,admin_city TEXT)");
+        db.execSQL("create table user_plumber(user_email TEXT,plumber_email TEXT,work_status INTEGER)");
+        db.execSQL("create table user_painter(user_email TEXT,painter_email TEXT,work_status INTEGER)");
+        db.execSQL("create table user_carmechanic(user_email TEXT,carmechanic_email TEXT,work_status INTEGER)");
+        db.execSQL("create table user_electrician(user_email TEXT,electrician_email TEXT,work_status INTEGER)");
+        db.execSQL("create table user_housecleaner(user_email TEXT,cleaner_email TEXT,work_status INTEGER)");
+        db.execSQL("create table user_appliancerepair(user_email TEXT,appliancerepair_email TEXT,work_status INTEGER)");
+        db.execSQL("create table user_treecutter(user_email TEXT,treecutter_email TEXT,work_status INTEGER)");
+        db.execSQL("create table user_gardener(user_email TEXT,gardener_email TEXT,work_status INTEGER)");
+        db.execSQL("create table user_cook(user_email TEXT,cook_email TEXT,work_status INTEGER)");
+        db.execSQL("create table user_driver(user_email TEXT,driver_email TEXT,work_status INTEGER)");
 
     }
     @Override
@@ -46,6 +57,17 @@ public class DBHelper extends SQLiteOpenHelper {
       db.execSQL("drop table if exists gardener");
       db.execSQL("drop table if exists cook");
       db.execSQL("drop table if exists driver");
+      db.execSQL("drop table if exists admin");
+      db.execSQL("drop table if exists user_plumber");
+      db.execSQL("drop table if exists user_painter");
+      db.execSQL("drop table if exists user_carmechanic");
+      db.execSQL("drop table if exists user_electrician");
+      db.execSQL("drop table if exists user_housecleaner");
+      db.execSQL("drop table if exists user_appliancerepair");
+      db.execSQL("drop table if exists user_treecutter");
+      db.execSQL("drop table if exists user_gardener");
+      db.execSQL("drop table if exists user_cook");
+      db.execSQL("drop table if exists user_driver");
     }
 
     public Boolean insertData(String username,String email, String password,String mobile,String address,String city) {
@@ -707,62 +729,62 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     public Cursor fetchPlumber(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("Select * from plumber",null);
+        Cursor cursor=db.rawQuery("Select * from plumber where plumber_status = 1",null);
         return cursor;
 
     }
     public Cursor fetchPainter(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("Select * from painter",null);
+        Cursor cursor=db.rawQuery("Select * from painter where painter_status = 1",null);
         return cursor;
 
     }
     public Cursor fetchCarmechanic(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("Select * from carmechanic",null);
+        Cursor cursor=db.rawQuery("Select * from carmechanic where carmechanic_status = 1",null);
         return cursor;
 
     }
     public Cursor fetchElectrician(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("Select * from electrician",null);
+        Cursor cursor=db.rawQuery("Select * from electrician where electrician_status = 1",null);
         return cursor;
 
     }
     public Cursor fetchHousecleaning(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("Select * from housecleaner",null);
+        Cursor cursor=db.rawQuery("Select * from housecleaner where cleaner_status = 1",null);
         return cursor;
 
     }
 
     public Cursor fetchAppliance(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("Select * from appliancerepair",null);
+        Cursor cursor=db.rawQuery("Select * from appliancerepair where appliancerepair_status = 1",null);
         return cursor;
 
     }
     public Cursor fetchTreecutting(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("Select * from treecutter",null);
+        Cursor cursor=db.rawQuery("Select * from treecutter where treecutter_status = 1",null);
         return cursor;
 
     }
     public Cursor fetchGardening(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("Select * from gardener",null);
+        Cursor cursor=db.rawQuery("Select * from gardener where gardener_status = 1",null);
         return cursor;
 
     }
     public Cursor fetchCook(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("Select * from cook",null);
+        Cursor cursor=db.rawQuery("Select * from cook where cook_status = 1",null);
         return cursor;
 
     }
     public Cursor fetchDriver(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("Select * from driver",null);
+        Cursor cursor=db.rawQuery("Select * from driver where driver_status = 1",null);
         return cursor;
 
     }
