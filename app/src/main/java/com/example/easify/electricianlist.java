@@ -17,18 +17,20 @@ public class electricianlist extends AppCompatActivity {
     DBHelper DB;
     AdapterElectrician adapterElectrician;
     TextView electricianlist_name,electricianlist_mobile,electricianlist_email,electricianlist_city;
+    String useremail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_electricianlist);
+        useremail = getIntent().getStringExtra("key_email");
         DB = new DBHelper(this);
         electrician_name =new ArrayList<>();
         electrician_mobile =new ArrayList<>();
         electrician_email =new ArrayList<>();
         electrician_city =new ArrayList<>();
         recyclerView=findViewById(R.id.recyclerview_electricianlist);
-        adapterElectrician = new AdapterElectrician(this,electrician_name,electrician_mobile,electrician_email,electrician_city);
+        adapterElectrician = new AdapterElectrician(this,electrician_name,electrician_mobile,electrician_email,electrician_city,useremail);
         recyclerView.setAdapter(adapterElectrician);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displayData();

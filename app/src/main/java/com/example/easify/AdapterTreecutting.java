@@ -18,13 +18,15 @@ public class AdapterTreecutting extends RecyclerView.Adapter<AdapterTreecutting.
     private Context context;
     private ArrayList<String> treecutting_name, treecutting_email, treecutting_mobile, treecutting_city;
     private DBHelper DB;
+    String useremail;
 
-    public AdapterTreecutting(Context context, ArrayList<String> treecutting_name, ArrayList<String> treecutting_email, ArrayList<String> treecutting_mobile, ArrayList<String> treecutting_city) {
+    public AdapterTreecutting(Context context, ArrayList<String> treecutting_name, ArrayList<String> treecutting_email, ArrayList<String> treecutting_mobile, ArrayList<String> treecutting_city,String useremail) {
         this.context = context;
         this.treecutting_name = treecutting_name;
         this.treecutting_email = treecutting_email;
         this.treecutting_mobile = treecutting_mobile;
         this.treecutting_city = treecutting_city;
+        this.useremail = useremail;
         DB = new DBHelper(context);
     }
 
@@ -42,15 +44,11 @@ public class AdapterTreecutting extends RecyclerView.Adapter<AdapterTreecutting.
             @Override
             public void onClick(View v) {
                 String email = (String) v.getTag();
-                Log.d("Email", email);
-
-                // Update the plumber status in the database
-                boolean success = DB.updateTreecuttingStatus(email, 1);
-
+                boolean success = DB.updateTreecuttingStatus(useremail,email);
                 if (success) {
-                    Toast.makeText(context, "Treecutting status updated successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Booked successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Failed to update treecutting status", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Failed to book", Toast.LENGTH_SHORT).show();
                 }
             }
         });

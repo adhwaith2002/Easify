@@ -63,6 +63,7 @@ public class driver extends AppCompatActivity implements NavigationView.OnNaviga
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(driver.this,driverlist.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });

@@ -16,19 +16,20 @@ public class appliancelist extends AppCompatActivity {
     ArrayList<String> appliance_name,appliance_mobile,appliance_email,appliance_city;
     DBHelper DB;
     AdapterAppliance adapterAppliance;
-
+    String useremail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appliancelist);
+        useremail = getIntent().getStringExtra("key_email");
         DB = new DBHelper(this);
         appliance_name =new ArrayList<>();
         appliance_mobile =new ArrayList<>();
         appliance_email =new ArrayList<>();
         appliance_city =new ArrayList<>();
         recyclerView=findViewById(R.id.recyclerview_appliancelist);
-        adapterAppliance = new AdapterAppliance(this,appliance_name,appliance_mobile,appliance_email,appliance_city);
+        adapterAppliance = new AdapterAppliance(this,appliance_name,appliance_mobile,appliance_email,appliance_city,useremail);
         recyclerView.setAdapter(adapterAppliance);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displayData();

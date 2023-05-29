@@ -66,6 +66,7 @@ public class appliance extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(appliance.this,appliancelist.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });

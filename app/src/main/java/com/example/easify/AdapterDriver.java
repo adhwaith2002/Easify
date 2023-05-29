@@ -18,13 +18,15 @@ public class AdapterDriver extends RecyclerView.Adapter<AdapterDriver.ViewHolder
     private Context context;
     private ArrayList<String> driver_name, driver_email, driver_mobile, driver_city;
     private DBHelper DB;
+    String useremail;
 
-    public AdapterDriver(Context context, ArrayList<String> driver_name, ArrayList<String> driver_email, ArrayList<String> driver_mobile, ArrayList<String> driver_city) {
+    public AdapterDriver(Context context, ArrayList<String> driver_name, ArrayList<String> driver_email, ArrayList<String> driver_mobile, ArrayList<String> driver_city,String useremail) {
         this.context = context;
         this.driver_name = driver_name;
         this.driver_email = driver_email;
         this.driver_mobile = driver_mobile;
         this.driver_city = driver_city;
+        this.useremail = useremail;
         DB = new DBHelper(context);
     }
 
@@ -42,15 +44,12 @@ public class AdapterDriver extends RecyclerView.Adapter<AdapterDriver.ViewHolder
             @Override
             public void onClick(View v) {
                 String email = (String) v.getTag();
-                Log.d("Email", email);
-
-                // Update the plumber status in the database
-                boolean success = DB.updateDriverStatus(email, 1);
+                boolean success = DB.updateDriverStatus(useremail,email);
 
                 if (success) {
-                    Toast.makeText(context, "Driver status updated successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Booked successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Failed to update driver status", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Failed to book", Toast.LENGTH_SHORT).show();
                 }
             }
         });

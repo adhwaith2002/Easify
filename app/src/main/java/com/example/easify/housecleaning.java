@@ -65,6 +65,7 @@ public class housecleaning extends AppCompatActivity implements NavigationView.O
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(housecleaning.this,housecleaninglist.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });

@@ -66,6 +66,7 @@ public class painting extends AppCompatActivity implements NavigationView.OnNavi
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(painting.this,paintinglist.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });

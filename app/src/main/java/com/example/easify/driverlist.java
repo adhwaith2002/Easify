@@ -16,19 +16,20 @@ public class driverlist extends AppCompatActivity {
     ArrayList<String> driver_name,driver_mobile,driver_email,driver_city;
     DBHelper DB;
     AdapterDriver adapterDriver;
-
+    String useremail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driverlist);
+        useremail = getIntent().getStringExtra("key_email");
         DB = new DBHelper(this);
         driver_name =new ArrayList<>();
         driver_mobile =new ArrayList<>();
         driver_email =new ArrayList<>();
         driver_city =new ArrayList<>();
         recyclerView=findViewById(R.id.recyclerview_driverlist);
-        adapterDriver = new AdapterDriver(this,driver_name,driver_mobile,driver_email,driver_city);
+        adapterDriver = new AdapterDriver(this,driver_name,driver_mobile,driver_email,driver_city,useremail);
         recyclerView.setAdapter(adapterDriver);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displayData();

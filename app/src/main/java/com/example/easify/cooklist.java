@@ -16,19 +16,20 @@ public class cooklist extends AppCompatActivity {
     ArrayList<String> cook_name,cook_mobile,cook_email,cook_city;
     DBHelper DB;
     AdapterCook adapterCook;
-
+    String useremail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cooklist);
+        useremail = getIntent().getStringExtra("key_email");
         DB = new DBHelper(this);
         cook_name =new ArrayList<>();
         cook_mobile =new ArrayList<>();
         cook_email =new ArrayList<>();
         cook_city =new ArrayList<>();
         recyclerView=findViewById(R.id.recyclerview_cooklist);
-        adapterCook = new AdapterCook(this,cook_name,cook_mobile,cook_email,cook_city);
+        adapterCook = new AdapterCook(this,cook_name,cook_mobile,cook_email,cook_city,useremail);
         recyclerView.setAdapter(adapterCook);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displayData();

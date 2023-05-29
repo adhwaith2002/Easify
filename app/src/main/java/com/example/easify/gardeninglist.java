@@ -16,19 +16,20 @@ public class gardeninglist extends AppCompatActivity {
     ArrayList<String> gardening_name,gardening_mobile,gardening_email,gardening_city;
     DBHelper DB;
     AdapterGardening adapterGardening;
-
+    String useremail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gardeninglist);
+        useremail = getIntent().getStringExtra("key_email");
         DB = new DBHelper(this);
         gardening_name =new ArrayList<>();
         gardening_mobile =new ArrayList<>();
         gardening_email =new ArrayList<>();
         gardening_city =new ArrayList<>();
         recyclerView=findViewById(R.id.recyclerview_gardeninglist);
-        adapterGardening = new AdapterGardening(this,gardening_name,gardening_mobile,gardening_email,gardening_city);
+        adapterGardening = new AdapterGardening(this,gardening_name,gardening_mobile,gardening_email,gardening_city,useremail);
         recyclerView.setAdapter(adapterGardening);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displayData();

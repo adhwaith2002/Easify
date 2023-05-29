@@ -18,13 +18,15 @@ public class AdapterGardening extends RecyclerView.Adapter<AdapterGardening.View
     private Context context;
     private ArrayList<String> gardening_name, gardening_email, gardening_mobile, gardening_city;
     private DBHelper DB;
+    String useremail;
 
-    public AdapterGardening(Context context, ArrayList<String> gardening_name, ArrayList<String> gardening_email, ArrayList<String> gardening_mobile, ArrayList<String> gardening_city) {
+    public AdapterGardening(Context context, ArrayList<String> gardening_name, ArrayList<String> gardening_email, ArrayList<String> gardening_mobile, ArrayList<String> gardening_city,String useremail) {
         this.context = context;
         this.gardening_name = gardening_name;
         this.gardening_email = gardening_email;
         this.gardening_mobile = gardening_mobile;
         this.gardening_city = gardening_city;
+        this.useremail = useremail;
         DB = new DBHelper(context);
     }
 
@@ -42,15 +44,11 @@ public class AdapterGardening extends RecyclerView.Adapter<AdapterGardening.View
             @Override
             public void onClick(View v) {
                 String email = (String) v.getTag();
-                Log.d("Email", email);
-
-                // Update the plumber status in the database
-                boolean success = DB.updateGardeningStatus(email, 1);
-
+                boolean success = DB.updateGardeningStatus(useremail,email);
                 if (success) {
-                    Toast.makeText(context, "gardener status updated successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Booked successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Failed to update gardener status", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Failed to book", Toast.LENGTH_SHORT).show();
                 }
             }
         });

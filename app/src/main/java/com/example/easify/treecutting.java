@@ -63,6 +63,7 @@ public class treecutting extends AppCompatActivity implements NavigationView.OnN
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(treecutting.this,treecuttinglist.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });

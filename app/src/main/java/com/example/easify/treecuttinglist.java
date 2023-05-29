@@ -16,19 +16,20 @@ public class treecuttinglist extends AppCompatActivity {
     ArrayList<String> treecutting_name,treecutting_mobile,treecutting_email,treecutting_city;
     DBHelper DB;
     AdapterTreecutting adapterTreecutting;
-
+    String useremail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_treecuttinglist);
+        useremail = getIntent().getStringExtra("key_email");
         DB = new DBHelper(this);
         treecutting_name =new ArrayList<>();
         treecutting_mobile =new ArrayList<>();
         treecutting_email =new ArrayList<>();
         treecutting_city =new ArrayList<>();
         recyclerView=findViewById(R.id.recyclerview_treecuttinglist);
-        adapterTreecutting = new AdapterTreecutting(this,treecutting_name,treecutting_mobile,treecutting_email,treecutting_city);
+        adapterTreecutting = new AdapterTreecutting(this,treecutting_name,treecutting_mobile,treecutting_email,treecutting_city,useremail);
         recyclerView.setAdapter(adapterTreecutting);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displayData();

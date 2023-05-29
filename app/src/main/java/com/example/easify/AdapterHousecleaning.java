@@ -18,13 +18,15 @@ public class AdapterHousecleaning extends RecyclerView.Adapter<AdapterHouseclean
     private Context context;
     private ArrayList<String> housecleaning_name, housecleaning_email, housecleaning_mobile, housecleaning_city;
     private DBHelper DB;
+    String useremail;
 
-    public AdapterHousecleaning(Context context, ArrayList<String> housecleaning_name, ArrayList<String> housecleaning_email, ArrayList<String> housecleaning_mobile, ArrayList<String> housecleaning_city) {
+    public AdapterHousecleaning(Context context, ArrayList<String> housecleaning_name, ArrayList<String> housecleaning_email, ArrayList<String> housecleaning_mobile, ArrayList<String> housecleaning_city,String useremail) {
         this.context = context;
         this.housecleaning_name = housecleaning_name;
         this.housecleaning_email = housecleaning_email;
         this.housecleaning_mobile = housecleaning_mobile;
         this.housecleaning_city = housecleaning_city;
+        this.useremail = useremail;
         DB = new DBHelper(context);
     }
 
@@ -42,15 +44,11 @@ public class AdapterHousecleaning extends RecyclerView.Adapter<AdapterHouseclean
             @Override
             public void onClick(View v) {
                 String email = (String) v.getTag();
-                Log.d("Email", email);
-
-                // Update the plumber status in the database
-                boolean success = DB.updateHousecleaningStatus(email, 1);
-
+                boolean success = DB.updateHousecleaningStatus(useremail,email);
                 if (success) {
-                    Toast.makeText(context, "Housecleaning status updated successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Booked successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Failed to update housecleaning status", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Failed to book", Toast.LENGTH_SHORT).show();
                 }
             }
         });

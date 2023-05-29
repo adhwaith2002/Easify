@@ -16,19 +16,20 @@ public class housecleaninglist extends AppCompatActivity {
     ArrayList<String> housecleaning_name,housecleaning_mobile,housecleaning_email,housecleaning_city;
     DBHelper DB;
     AdapterHousecleaning adapterHousecleaning;
-
+    String useremail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_housecleaninglist);
+        useremail = getIntent().getStringExtra("key_email");
         DB = new DBHelper(this);
         housecleaning_name =new ArrayList<>();
         housecleaning_mobile =new ArrayList<>();
         housecleaning_email =new ArrayList<>();
         housecleaning_city =new ArrayList<>();
         recyclerView=findViewById(R.id.recyclerview_housecleaninglist);
-        adapterHousecleaning = new AdapterHousecleaning(this,housecleaning_name,housecleaning_mobile,housecleaning_email,housecleaning_city);
+        adapterHousecleaning = new AdapterHousecleaning(this,housecleaning_name,housecleaning_mobile,housecleaning_email,housecleaning_city,useremail);
         recyclerView.setAdapter(adapterHousecleaning);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displayData();

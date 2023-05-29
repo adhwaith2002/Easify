@@ -63,6 +63,7 @@ public class gardening extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(gardening.this,gardeninglist.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });

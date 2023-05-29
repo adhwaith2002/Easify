@@ -63,6 +63,7 @@ public class cook extends AppCompatActivity implements NavigationView.OnNavigati
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(cook.this,cooklist.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });

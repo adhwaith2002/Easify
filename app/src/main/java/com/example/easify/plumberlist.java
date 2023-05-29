@@ -17,18 +17,20 @@ public class plumberlist extends AppCompatActivity {
     DBHelper DB;
     AdapterPlumber adapterPlumber;
     TextView plumberlist_name,plumberlist_mobile,plumberlist_email,plumberlist_city;
+    String useremail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plumberlist);
+        useremail = getIntent().getStringExtra("key_email");
         DB = new DBHelper(this);
         plumber_name =new ArrayList<>();
         plumber_mobile =new ArrayList<>();
         plumber_email =new ArrayList<>();
         plumber_city =new ArrayList<>();
         recyclerView=findViewById(R.id.recyclerview_plumberlist);
-        adapterPlumber = new AdapterPlumber(this,plumber_name,plumber_mobile,plumber_email,plumber_city);
+        adapterPlumber = new AdapterPlumber(this,plumber_name,plumber_mobile,plumber_email,plumber_city,useremail);
         recyclerView.setAdapter(adapterPlumber);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displayData();

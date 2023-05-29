@@ -66,6 +66,7 @@ public class plumber extends AppCompatActivity implements NavigationView.OnNavig
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(plumber.this,plumberlist.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });

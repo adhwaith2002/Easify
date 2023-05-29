@@ -18,19 +18,20 @@ public class paintinglist extends AppCompatActivity {
     DBHelper DB;
     AdapterPainter adapterPainter;
     TextView painterlist_name,painterlist_mobile,painterlist_email,painterlist_city;
-
+    String useremail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paintinglist);
+        useremail = getIntent().getStringExtra("key_email");
         DB = new DBHelper(this);
         painter_name =new ArrayList<>();
         painter_mobile =new ArrayList<>();
         painter_email =new ArrayList<>();
         painter_city =new ArrayList<>();
         recyclerView=findViewById(R.id.recyclerview_painterlist);
-        adapterPainter = new AdapterPainter(this,painter_name,painter_mobile,painter_email,painter_city);
+        adapterPainter = new AdapterPainter(this,painter_name,painter_mobile,painter_email,painter_city,useremail);
         recyclerView.setAdapter(adapterPainter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displayData();

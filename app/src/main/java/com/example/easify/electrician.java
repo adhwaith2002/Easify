@@ -67,6 +67,7 @@ public class electrician extends AppCompatActivity implements NavigationView.OnN
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(electrician.this,electricianlist.class);
+                intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });

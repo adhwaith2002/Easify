@@ -17,18 +17,20 @@ public class carmechaniclist extends AppCompatActivity {
     DBHelper DB;
     AdapterCarmechanic adapterCarmechanic;
     TextView carmechaniclist_name,carmechaniclist_mobile,carmechaniclist_email,carmechaniclist_city;
+    String useremail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carmechaniclist);
+        useremail = getIntent().getStringExtra("key_email");
         DB = new DBHelper(this);
         carmechanic_name =new ArrayList<>();
         carmechanic_mobile =new ArrayList<>();
         carmechanic_email =new ArrayList<>();
         carmechanic_city =new ArrayList<>();
         recyclerView=findViewById(R.id.recyclerview_carmechaniclist);
-        adapterCarmechanic = new AdapterCarmechanic(this,carmechanic_name,carmechanic_mobile,carmechanic_email,carmechanic_city);
+        adapterCarmechanic = new AdapterCarmechanic(this,carmechanic_name,carmechanic_mobile,carmechanic_email,carmechanic_city,useremail);
         recyclerView.setAdapter(adapterCarmechanic);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displayData();

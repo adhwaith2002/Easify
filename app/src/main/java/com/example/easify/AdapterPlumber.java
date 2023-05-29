@@ -18,13 +18,15 @@ public class AdapterPlumber extends RecyclerView.Adapter<AdapterPlumber.ViewHold
      private Context context;
      private ArrayList<String> plumber_name, plumber_email, plumber_mobile, plumber_city;
      private DBHelper DB;
+     String useremail;
 
-     public AdapterPlumber(Context context, ArrayList<String> plumber_name, ArrayList<String> plumber_email, ArrayList<String> plumber_mobile, ArrayList<String> plumber_city) {
+     public AdapterPlumber(Context context, ArrayList<String> plumber_name, ArrayList<String> plumber_email, ArrayList<String> plumber_mobile, ArrayList<String> plumber_city,String useremail) {
           this.context = context;
           this.plumber_name = plumber_name;
           this.plumber_email = plumber_email;
           this.plumber_mobile = plumber_mobile;
           this.plumber_city = plumber_city;
+          this.useremail = useremail;
           DB = new DBHelper(context);
      }
 
@@ -33,6 +35,7 @@ public class AdapterPlumber extends RecyclerView.Adapter<AdapterPlumber.ViewHold
      public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
           View convertview = LayoutInflater.from(context).inflate(R.layout.plumberdata, parent, false);
           return new ViewHolder(convertview);
+
      }
 
      @Override
@@ -42,15 +45,12 @@ public class AdapterPlumber extends RecyclerView.Adapter<AdapterPlumber.ViewHold
                @Override
                public void onClick(View v) {
                     String email = (String) v.getTag();
-                    Log.d("Email", email);
-
-                    // Update the plumber status in the database
-                    boolean success = DB.updatePlumberStatus(email, 1);
+                    boolean success = DB.updatePlumberStatus(useremail,email);
 
                     if (success) {
-                         Toast.makeText(context, "Plumber status updated successfully", Toast.LENGTH_SHORT).show();
+                         Toast.makeText(context, "Booked sucessfully", Toast.LENGTH_SHORT).show();
                     } else {
-                         Toast.makeText(context, "Failed to update plumber status", Toast.LENGTH_SHORT).show();
+                         Toast.makeText(context, "Failed to book", Toast.LENGTH_SHORT).show();
                     }
                }
           });

@@ -18,13 +18,15 @@ public class AdapterCarmechanic extends RecyclerView.Adapter<AdapterCarmechanic.
     private Context context;
     private ArrayList<String> carmechanic_name, carmechanic_email, carmechanic_mobile, carmechanic_city;
     private DBHelper DB;
+    String useremail;
 
-    public AdapterCarmechanic(Context context, ArrayList<String> carmechanic_name, ArrayList<String> carmechanic_email, ArrayList<String> carmechanic_mobile, ArrayList<String> carmechanic_city) {
+    public AdapterCarmechanic(Context context, ArrayList<String> carmechanic_name, ArrayList<String> carmechanic_email, ArrayList<String> carmechanic_mobile, ArrayList<String> carmechanic_city,String useremail) {
         this.context = context;
         this.carmechanic_name = carmechanic_name;
         this.carmechanic_email = carmechanic_email;
         this.carmechanic_mobile = carmechanic_mobile;
         this.carmechanic_city = carmechanic_city;
+        this.useremail = useremail;
         DB = new DBHelper(context);
     }
 
@@ -42,15 +44,12 @@ public class AdapterCarmechanic extends RecyclerView.Adapter<AdapterCarmechanic.
             @Override
             public void onClick(View v) {
                 String email = (String) v.getTag();
-                Log.d("Email", email);
-
-                // Update the plumber status in the database
-                boolean success = DB.updateCarmechanicStatus(email, 1);
+                boolean success = DB.updateCarmechanicStatus(useremail,email);
 
                 if (success) {
-                    Toast.makeText(context, "Car mechanic status updated successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Booked successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Failed to update car mechanic status", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Failed to book", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -18,13 +18,15 @@ public class AdapterAppliance extends RecyclerView.Adapter<AdapterAppliance.View
     private Context context;
     private ArrayList<String> appliance_name, appliance_email, appliance_mobile, appliance_city;
     private DBHelper DB;
+    String useremail;
 
-    public AdapterAppliance(Context context, ArrayList<String> appliance_name, ArrayList<String> appliance_email, ArrayList<String> appliance_mobile, ArrayList<String> appliance_city) {
+    public AdapterAppliance(Context context, ArrayList<String> appliance_name, ArrayList<String> appliance_email, ArrayList<String> appliance_mobile, ArrayList<String> appliance_city,String useremail) {
         this.context = context;
         this.appliance_name = appliance_name;
         this.appliance_email = appliance_email;
         this.appliance_mobile = appliance_mobile;
         this.appliance_city = appliance_city;
+        this.useremail = useremail;
         DB = new DBHelper(context);
     }
 
@@ -42,15 +44,12 @@ public class AdapterAppliance extends RecyclerView.Adapter<AdapterAppliance.View
             @Override
             public void onClick(View v) {
                 String email = (String) v.getTag();
-                Log.d("Email", email);
-
-                // Update the plumber status in the database
-                boolean success = DB.updateApplianceStatus(email, 1);
+                boolean success = DB.updateApplianceStatus(useremail,email);
 
                 if (success) {
-                    Toast.makeText(context, "Appliance status updated successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Booked successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Failed to update appliance status", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Failed to book", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -18,13 +18,15 @@ public class AdapterPainter extends RecyclerView.Adapter<AdapterPainter.ViewHold
     private Context context;
     private ArrayList<String> painter_name, painter_email, painter_mobile, painter_city;
     private DBHelper DB;
+    String useremail;
 
-    public AdapterPainter(Context context, ArrayList<String> painter_name, ArrayList<String> painter_email, ArrayList<String> painter_mobile, ArrayList<String> painter_city) {
+    public AdapterPainter(Context context, ArrayList<String> painter_name, ArrayList<String> painter_email, ArrayList<String> painter_mobile, ArrayList<String> painter_city,String useremail) {
         this.context = context;
         this.painter_name = painter_name;
         this.painter_email = painter_email;
         this.painter_mobile = painter_mobile;
         this.painter_city = painter_city;
+        this.useremail = useremail;
         DB = new DBHelper(context);
     }
 
@@ -42,15 +44,12 @@ public class AdapterPainter extends RecyclerView.Adapter<AdapterPainter.ViewHold
             @Override
             public void onClick(View v) {
                 String email = (String) v.getTag();
-                Log.d("Email", email);
-
-                // Update the plumber status in the database
-                boolean success = DB.updatePainterStatus(email, 1);
+                boolean success = DB.updatePainterStatus(useremail,email);
 
                 if (success) {
-                    Toast.makeText(context, "Painter status updated successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Booked successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Failed to update painter status", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Failed to book", Toast.LENGTH_SHORT).show();
                 }
             }
         });

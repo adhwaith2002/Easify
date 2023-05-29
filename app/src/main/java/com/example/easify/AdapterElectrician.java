@@ -18,13 +18,15 @@ public class AdapterElectrician extends RecyclerView.Adapter<AdapterElectrician.
     private Context context;
     private ArrayList<String> electrician_name, electrician_email, electrician_mobile, electrician_city;
     private DBHelper DB;
+    String useremail;
 
-    public AdapterElectrician(Context context, ArrayList<String> electrician_name, ArrayList<String> electrician_email, ArrayList<String> electrician_mobile, ArrayList<String> electrician_city) {
+    public AdapterElectrician(Context context, ArrayList<String> electrician_name, ArrayList<String> electrician_email, ArrayList<String> electrician_mobile, ArrayList<String> electrician_city,String useremail) {
         this.context = context;
         this.electrician_name = electrician_name;
         this.electrician_email = electrician_email;
         this.electrician_mobile = electrician_mobile;
         this.electrician_city = electrician_city;
+        this.useremail = useremail;
         DB = new DBHelper(context);
     }
 
@@ -42,15 +44,11 @@ public class AdapterElectrician extends RecyclerView.Adapter<AdapterElectrician.
             @Override
             public void onClick(View v) {
                 String email = (String) v.getTag();
-                Log.d("Email", email);
-
-                // Update the plumber status in the database
-                boolean success = DB.updateElectricianStatus(email, 1);
-
+                boolean success = DB.updateElectricianStatus(useremail,email);
                 if (success) {
-                    Toast.makeText(context, "Electrician status updated successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Booked sucessfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Failed to update electrician status", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Failed to book", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -18,13 +18,15 @@ public class AdapterCook extends RecyclerView.Adapter<AdapterCook.ViewHolder> {
     private Context context;
     private ArrayList<String> cook_name, cook_email, cook_mobile, cook_city;
     private DBHelper DB;
+    String useremail;
 
-    public AdapterCook(Context context, ArrayList<String> cook_name, ArrayList<String> cook_email, ArrayList<String> cook_mobile, ArrayList<String> cook_city) {
+    public AdapterCook(Context context, ArrayList<String> cook_name, ArrayList<String> cook_email, ArrayList<String> cook_mobile, ArrayList<String> cook_city,String useremail) {
         this.context = context;
         this.cook_name = cook_name;
         this.cook_email = cook_email;
         this.cook_mobile = cook_mobile;
         this.cook_city = cook_city;
+        this.useremail = useremail;
         DB = new DBHelper(context);
     }
 
@@ -42,15 +44,11 @@ public class AdapterCook extends RecyclerView.Adapter<AdapterCook.ViewHolder> {
             @Override
             public void onClick(View v) {
                 String email = (String) v.getTag();
-                Log.d("Email", email);
-
-                // Update the plumber status in the database
-                boolean success = DB.updateCookStatus(email, 1);
-
+                boolean success = DB.updateCookStatus(useremail,email);
                 if (success) {
-                    Toast.makeText(context, "Cook status updated successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Booked successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Failed to update cook status", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Failed to book", Toast.LENGTH_SHORT).show();
                 }
             }
         });
