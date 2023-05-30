@@ -547,6 +547,127 @@ public class DBHelper extends SQLiteOpenHelper {
       cursor.close();
       return arrUser;
     }
+    public ArrayList<UserModel>collectUserPlumber(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from user_plumber where plumber_email=?",new String[]{email});
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            UserModel model = new UserModel();
+            model.email = cursor.getString(0);
+            arrUser.add(model);
+        }
+        cursor.close();
+        return arrUser;
+    }
+    public ArrayList<UserModel>collectUserPainter(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from user_painter where painter_email=?",new String[]{email});
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            UserModel model = new UserModel();
+            model.email = cursor.getString(0);
+            arrUser.add(model);
+        }
+        cursor.close();
+        return arrUser;
+    }
+    public ArrayList<UserModel>collectUserCarmechanic(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from user_carmechanic where carmechanic_email=?",new String[]{email});
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            UserModel model = new UserModel();
+            model.email = cursor.getString(0);
+            arrUser.add(model);
+        }
+        cursor.close();
+        return arrUser;
+    }
+    public ArrayList<UserModel>collectUserElectrician(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from user_electrician where electrician_email=?",new String[]{email});
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            UserModel model = new UserModel();
+            model.email = cursor.getString(0);
+            arrUser.add(model);
+        }
+        cursor.close();
+        return arrUser;
+    }
+    public ArrayList<UserModel>collectUserCleanner(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from user_housecleaner where cleaner_email=?",new String[]{email});
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            UserModel model = new UserModel();
+            model.email = cursor.getString(0);
+            arrUser.add(model);
+        }
+        cursor.close();
+        return arrUser;
+    }
+    public ArrayList<UserModel>collectUserAppliancerepair(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from user_appliancerepair where appliancerepair_email=?",new String[]{email});
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            UserModel model = new UserModel();
+            model.email = cursor.getString(0);
+            arrUser.add(model);
+        }
+        cursor.close();
+        return arrUser;
+    }
+    public ArrayList<UserModel>collectUserTreecutter(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from user_treecutter where treecutter_email=?",new String[]{email});
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            UserModel model = new UserModel();
+            model.email = cursor.getString(0);
+            arrUser.add(model);
+        }
+        cursor.close();
+        return arrUser;
+    }
+    public ArrayList<UserModel>collectUserGardener(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from user_gardener where gardener_email=?",new String[]{email});
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            UserModel model = new UserModel();
+            model.email = cursor.getString(0);
+            arrUser.add(model);
+        }
+        cursor.close();
+        return arrUser;
+    }
+    public ArrayList<UserModel>collectUserCook(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from user_cook where cook_email=?",new String[]{email});
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            UserModel model = new UserModel();
+            model.email = cursor.getString(0);
+            arrUser.add(model);
+        }
+        cursor.close();
+        return arrUser;
+    }
+    public ArrayList<UserModel>collectUserDriver(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from user_driver where driver_email=?",new String[]{email});
+        ArrayList<UserModel> arrUser = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            UserModel model = new UserModel();
+            model.email = cursor.getString(0);
+            arrUser.add(model);
+        }
+        cursor.close();
+        return arrUser;
+    }
+
     public ArrayList<ServiceModel> collectPlumber(String email){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from plumber where plumber_email=?",new String[]{email});
@@ -727,6 +848,7 @@ public class DBHelper extends SQLiteOpenHelper {
         cursor.close();
         return arrService;
     }
+
     public Cursor fetchPlumber(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor=db.rawQuery("Select * from plumber where plumber_status = 1",null);
@@ -788,6 +910,13 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+    public Cursor fetchuserlist(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from users where email = ?", new String[]{email});
+        return cursor;
+
+    }
+
     public boolean edituser(String username,String newemail,String mobile,String address,String city,String email)
     {
         SQLiteDatabase db = this.getWritableDatabase();

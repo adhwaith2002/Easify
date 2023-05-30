@@ -28,6 +28,7 @@ public class serviceproviderdashboard extends AppCompatActivity implements Navig
     TextView dashboardservicename,dashboardserviceemail;
     DBHelper DB;
     Button viewappointment,statusbutton;
+
     int status;
 
     @Override
@@ -401,7 +402,15 @@ public class serviceproviderdashboard extends AppCompatActivity implements Navig
                 }
             }
         });
-
+       viewappointment.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent = new Intent(serviceproviderdashboard.this,userlist.class);
+               intent.putExtra("key_email",email);
+               intent.putExtra("key_table",table);
+               startActivity(intent);
+           }
+       });
     }
 
     @Override
