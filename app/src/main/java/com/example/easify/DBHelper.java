@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -559,6 +560,7 @@ public class DBHelper extends SQLiteOpenHelper {
         cursor.close();
         return arrUser;
     }
+
     public ArrayList<UserModel>collectUserPainter(String email){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from user_painter where painter_email=?",new String[]{email});
@@ -916,6 +918,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+
 
     public boolean edituser(String username,String newemail,String mobile,String address,String city,String email)
     {

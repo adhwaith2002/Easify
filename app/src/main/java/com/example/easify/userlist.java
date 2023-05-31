@@ -41,7 +41,7 @@ public class userlist extends AppCompatActivity {
 
     private void fetchdata(){
 
-        if ("plumber".equals(table)){
+        if ("plumber".equals(table)) {
             ArrayList<UserModel> arrUser = new ArrayList<>();
             arrUser = DB.collectUserPlumber(email);
             if (!arrUser.isEmpty()) {
@@ -50,6 +50,7 @@ public class userlist extends AppCompatActivity {
 
             }
         }
+
         else if("painter".equals(table)){
             ArrayList<UserModel> arrUser = new ArrayList<>();
             arrUser = DB.collectUserPainter(email);

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerlayout_googleelectrician"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    tools:context=".googleelectrician"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    >
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/navview_googleelectrician"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu2"
+        android:layout_gravity="start"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar_googleelectrician"
+            layout="@layout/toolbar"
+            />
+
+        <Button
+            android:id="@+id/googleelectricianbook"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:background="#8A5BDD"
+            android:text="Book Appointment +"
+            android:textColor="#F3EBEB"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_googleelectrician"
+            app:layout_constraintVertical_bias="0.26999998" />
+
+        <Button
+            android:id="@+id/googleelectriciantrack"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:background="#8A5BDD"
+            android:text="Track"
+            android:textColor="#F3EBEB"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_googleelectrician"
+            app:layout_constraintVertical_bias="0.45" />
+
+        <Button
+            android:id="@+id/googleelectricianhistory"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:background="#8A5BDD"
+            android:text="History"
+            android:textColor="#F3EBEB"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_googleelectrician"
+            app:layout_constraintVertical_bias="0.63" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.469"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_googleelectrician"
+            app:layout_constraintVertical_bias="0.060000002"
+            app:srcCompat="@drawable/electrician" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
