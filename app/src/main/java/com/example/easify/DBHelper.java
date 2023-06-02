@@ -530,6 +530,14 @@ public class DBHelper extends SQLiteOpenHelper {
         else
             return false;
     }
+    public Boolean checkemailpassword12(String email,String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from admin where admin_email=? and admin_password=?",new String[]{email,password} );
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
 
     public ArrayList<UserModel> fetchUser(String email){
       SQLiteDatabase db = this.getReadableDatabase();
@@ -1262,6 +1270,76 @@ public class DBHelper extends SQLiteOpenHelper {
             db.close();
         }
         return rowsAffected > 0;
+    }
+    public boolean deleteRowsByEmail1(String email,String serviceprovider_email){
+        int rowsDeleted=0;
+      SQLiteDatabase db = this.getWritableDatabase();
+      ContentValues values = new ContentValues();
+      rowsDeleted = db.delete("user_plumber","user_email=? and plumber_email=?",new String[]{email,serviceprovider_email});
+      return rowsDeleted>0;
+    }
+    public boolean deleteRowsByEmail2(String email,String serviceprovider_email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("user_painter","user_email=? and painter_email=?",new String[]{email,serviceprovider_email});
+        return rowsDeleted>0;
+    }
+    public boolean deleteRowsByEmail3(String email,String serviceprovider_email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("user_carmechanic","user_email=? and carmechanic_email=?",new String[]{email,serviceprovider_email});
+        return rowsDeleted>0;
+    }
+    public boolean deleteRowsByEmail4(String email,String serviceprovider_email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("user_electrician","user_email=? and electrician_email=?",new String[]{email,serviceprovider_email});
+        return rowsDeleted>0;
+    }
+    public boolean deleteRowsByEmail5(String email,String serviceprovider_email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("user_housecleaner","user_email=? and cleaner_email=?",new String[]{email,serviceprovider_email});
+        return rowsDeleted>0;
+    }
+    public boolean deleteRowsByEmail6(String email,String serviceprovider_email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("user_appliancerepair","user_email=? and appliancerepair_email=?",new String[]{email,serviceprovider_email});
+        return rowsDeleted>0;
+    }
+    public boolean deleteRowsByEmail7(String email,String serviceprovider_email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("user_treecutter","user_email=? and treecutter_email=?",new String[]{email,serviceprovider_email});
+        return rowsDeleted>0;
+    }
+    public boolean deleteRowsByEmail8(String email,String serviceprovider_email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("user_gardener","user_email=? and gardener_email=?",new String[]{email,serviceprovider_email});
+        return rowsDeleted>0;
+    }
+    public boolean deleteRowsByEmail9(String email,String serviceprovider_email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("user_cook","user_email=? and cook_email=?",new String[]{email,serviceprovider_email});
+        return rowsDeleted>0;
+    }
+    public boolean deleteRowsByEmail10(String email,String serviceprovider_email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("user_driver","user_email=? and driver_email=?",new String[]{email,serviceprovider_email});
+        return rowsDeleted>0;
     }
         public boolean updatePlumberStatus(String useremail, String plumberemail) {
             SQLiteDatabase db = this.getWritableDatabase();

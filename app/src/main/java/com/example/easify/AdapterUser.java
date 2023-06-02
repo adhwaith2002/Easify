@@ -18,15 +18,17 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.ViewHolder> {
     private Context context;
     private ArrayList<String> user_name, user_email, user_mobile, user_address ,user_city;
     private DBHelper DB;
+    String table,serviceprovider_email;
 
-
-    public AdapterUser(Context context, ArrayList<String> user_name, ArrayList<String> user_email, ArrayList<String> user_mobile, ArrayList<String> user_address , ArrayList<String> user_city) {
+    public AdapterUser(Context context, ArrayList<String> user_name, ArrayList<String> user_email, ArrayList<String> user_mobile, ArrayList<String> user_address , ArrayList<String> user_city,String table,String serviceprovider_email) {
         this.context = context;
         this.user_name = user_name;
         this.user_email = user_email;
         this.user_mobile = user_mobile;
         this.user_city = user_city;
         this.user_address = user_address;
+        this.table = table;
+        this.serviceprovider_email = serviceprovider_email;
         DB = new DBHelper(context);
     }
 
@@ -40,19 +42,93 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bindData(position);
-      /**  holder.DoneButton.setOnClickListener(new View.OnClickListener() {
+       holder.DoneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = (String) v.getTag();
-                boolean success = DB.updateDriverStatus(useremail,email);
+                String email = (String) holder.DoneButton.getTag();
 
-                if (success) {
-                    Toast.makeText(context, "Booked successfully", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(context, "Failed to book", Toast.LENGTH_SHORT).show();
+                if(table.equals("plumber")){
+                    Boolean rowsDeleted = DB.deleteRowsByEmail1(email,serviceprovider_email);
+                    if (rowsDeleted) {
+                        Toast.makeText(context, "Job completed successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else if(table.equals("painter")){
+                    Boolean rowsDeleted = DB.deleteRowsByEmail2(email,serviceprovider_email);
+                    if (rowsDeleted) {
+                        Toast.makeText(context, "Job completed successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else if(table.equals("carmechanic")){
+                    Boolean rowsDeleted = DB.deleteRowsByEmail3(email,serviceprovider_email);
+                    if (rowsDeleted) {
+                        Toast.makeText(context, "Job completed successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else if(table.equals("electrician")){
+                    Boolean rowsDeleted = DB.deleteRowsByEmail4(email,serviceprovider_email);
+                    if (rowsDeleted) {
+                        Toast.makeText(context, "Job completed successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else if(table.equals("housecleaner")){
+                    Boolean rowsDeleted = DB.deleteRowsByEmail5(email,serviceprovider_email);
+                    if (rowsDeleted) {
+                        Toast.makeText(context, "Job completed successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else if(table.equals("appliancerepair")){
+                    Boolean rowsDeleted = DB.deleteRowsByEmail6(email,serviceprovider_email);
+                    if (rowsDeleted) {
+                        Toast.makeText(context, "Job completed successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else if(table.equals("treecutter")){
+                    Boolean rowsDeleted = DB.deleteRowsByEmail7(email,serviceprovider_email);
+                    if (rowsDeleted) {
+                        Toast.makeText(context, "Job completed successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else if(table.equals("gardener")){
+                    Boolean rowsDeleted = DB.deleteRowsByEmail8(email,serviceprovider_email);
+                    if (rowsDeleted) {
+                        Toast.makeText(context, "Job completed successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else if(table.equals("cook")){
+                    Boolean rowsDeleted = DB.deleteRowsByEmail9(email,serviceprovider_email);
+                    if (rowsDeleted) {
+                        Toast.makeText(context, "Job completed successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else if(table.equals("driver")){
+                    Boolean rowsDeleted = DB.deleteRowsByEmail10(email,serviceprovider_email);
+                    if (rowsDeleted) {
+                        Toast.makeText(context, "Job completed successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
-        });**/
+        });
     }
 
 

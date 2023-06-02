@@ -32,7 +32,7 @@ public class userlist extends AppCompatActivity {
         user_address =new ArrayList<>();
         user_city =new ArrayList<>();
         recyclerView=findViewById(R.id.recyclerview_userlist);
-        adapterUser = new AdapterUser(this,user_name,user_mobile,user_email,user_address,user_city);
+        adapterUser = new AdapterUser(this,user_name,user_mobile,user_email,user_address,user_city,table,email);
         recyclerView.setAdapter(adapterUser);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         fetchdata();
@@ -137,6 +137,10 @@ public class userlist extends AppCompatActivity {
 
 
     private void displayData() {
+        if(useremail==null){
+            Toast.makeText(this, "no users ", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Cursor cursor = DB.fetchuserlist(useremail);
         if (cursor.getCount() == 0) {
             Toast.makeText(this, "No users", Toast.LENGTH_SHORT).show();

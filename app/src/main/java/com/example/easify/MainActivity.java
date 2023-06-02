@@ -6,6 +6,7 @@ import android.content.Intent;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     Boolean checkemailpassword9 = DB.checkemailpassword9(email1,password1);
                     Boolean checkemailpassword10 = DB.checkemailpassword10(email1,password1);
                     Boolean checkemailpassword11 = DB.checkemailpassword11(email1,password1);
+                    Boolean checkemailpassword12 = DB.checkemailpassword12(email1,password1);
                     if(checkemailpassword1 == true){
                         Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this,userdashboard.class);
@@ -149,6 +151,13 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this,serviceproviderdashboard.class);
                         intent.putExtra("key_email",email1);
                         intent.putExtra("key_table","driver");
+                        startActivity(intent);
+                    }
+                    else if(checkemailpassword12 == true){
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,admindashboard.class);
+                        //intent.putExtra("key_email",email1);
+                        //intent.putExtra("key_table","driver");
                         startActivity(intent);
                     }
                     else {
