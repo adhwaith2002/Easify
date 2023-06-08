@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addadmindrawerlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    tools:context=".addadmin"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/background2"
+
+    >
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/addadminnavview"
+        app:headerLayout="@layout/headeradmin"
+        app:menu="@menu/main_menu3"
+        android:layout_gravity="start"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <include
+            android:id="@+id/addadmintoolbar"
+            layout="@layout/toolbar"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".addadmin">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    tools:context=".addadmin">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/addadmintitle"
+                        android:text="Add Admin"
+                        android:textSize="35dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_margin="25dp"
+                        />
+
+                    <EditText
+                        android:id="@+id/addadminusername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/addadmintitle"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#30ffffff"
+                        android:drawableLeft="@drawable/baseline_person_outline_24"
+                        android:drawablePadding="20dp"
+                        android:hint="Username"
+                        android:padding="20dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
+
+                    <EditText
+                        android:id="@+id/addadminemail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/addadminusername"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#30ffffff"
+                        android:drawableLeft="@drawable/baseline_email_24"
+                        android:drawablePadding="20dp"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:padding="20dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
+                    <EditText
+                        android:id="@+id/addadminpassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/addadminemail"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#30ffffff"
+                        android:drawableLeft="@drawable/baseline_lock_24"
+                        android:drawablePadding="20dp"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:padding="20dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
+
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/addadminmobile"
+                        android:layout_below="@id/addadminpassword"
+                        android:background="#30ffffff"
+                        android:hint="Mobile number"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:layout_margin="10dp"
+                        android:padding="20dp"
+                        android:drawableLeft="@drawable/baseline_phone_android_24"
+                        android:drawablePadding="20dp"
+                        android:inputType="number"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/addadminaddress"
+                        android:layout_below="@id/addadminmobile"
+                        android:background="#30ffffff"
+                        android:hint="Address"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:layout_margin="10dp"
+                        android:padding="20dp"
+                        android:drawableLeft="@drawable/baseline_house_24"
+                        android:drawablePadding="20dp"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/addadmincity"
+                        android:layout_below="@id/addadminaddress"
+                        android:background="#30ffffff"
+                        android:hint="City"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:layout_margin="10dp"
+                        android:padding="20dp"
+                        android:drawableLeft="@drawable/baseline_location_on_24"
+                        android:drawablePadding="20dp"
+                        />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/addadminbtn"
+                        android:layout_below="@id/addadmincity"
+                        android:text="Register"
+                        android:backgroundTint="@color/teal_200"
+                        android:layout_margin="20dp"
+                        android:layout_centerHorizontal="true"
+                        />
+
+                </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/adminnavhome"
+            android:title="Home"
+            android:icon="@drawable/baseline_home_24"
+            />
+        <item
+            android:id="@+id/adminedit"
+            android:title="Edit info"
+            android:icon="@drawable/baseline_edit_note_24"
+            />
+        <item
+            android:id="@+id/adminadd"
+            android:title="Add admin"
+            android:icon="@drawable/baseline_person_add_24"
+            />
+
+        <item
+            android:id="@+id/adminnavnotification"
+            android:title="Notification"
+            android:icon="@drawable/baseline_notifications_active_24"/>
+        <item
+            android:id="@+id/adminnavhistory"
+            android:title="History"
+            android:icon="@drawable/baseline_history_24"/>
+        <item
+            android:id="@+id/adminnavpayment"
+            android:title="Payment"
+            android:icon="@drawable/baseline_payments_24"/>
+        <item
+            android:id="@+id/adminnavlogout"
+            android:title="Logout"
+            android:icon="@drawable/baseline_logout_24"/>
+
+
+
+    </group>
+
+
+
+</menu>

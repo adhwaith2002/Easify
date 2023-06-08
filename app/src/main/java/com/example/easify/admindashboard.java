@@ -23,7 +23,7 @@ public class admindashboard extends AppCompatActivity implements NavigationView.
     DrawerLayout admindrawerLayout;
     NavigationView adminnavigationView;
     Toolbar admintoolbar;
-    TextView dashboardemail,dashboarduser;
+    TextView dashboardadminemail,dashboardadmin;
     String email;
     DBHelper DB;
 
@@ -48,16 +48,14 @@ public class admindashboard extends AppCompatActivity implements NavigationView.
         admincookimage = findViewById(R.id.admincookimage);
         admindriverimage = findViewById(R.id.admindriverimage);
         DB =new DBHelper(this);
+        email = getIntent().getStringExtra("key_email");
+        ArrayList<AdminModel> arrUser = new ArrayList<>();
+        if (email != null) {
+            arrUser = DB.fetchAdmin(email);
+        } else {
 
-        //email = getIntent().getStringExtra("key_email");
-
-        //ArrayList<UserModel> arrUser = new ArrayList<>();
-        //if (email != null) {
-          //  arrUser = DB.fetchUser(email);
-        //} else {
-            // Handle the case when the email is null
-        //}
-        //String username = arrUser.get(0).username;
+        }
+        String username = arrUser.get(0).username;
 
       /**  plumberimage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,10 +157,10 @@ public class admindashboard extends AppCompatActivity implements NavigationView.
 
         adminnavigationView.setNavigationItemSelectedListener(this);
         View headerView = adminnavigationView.getHeaderView(0);
-        dashboardemail = headerView.findViewById(R.id.dashboardemail);
-        dashboarduser = headerView.findViewById(R.id.dashboarduser);
-        //dashboardemail.setText(email);
-        //dashboarduser.setText(username);
+        dashboardadminemail = headerView.findViewById(R.id.dashboardadminemail);
+        dashboardadmin = headerView.findViewById(R.id.dashboardadmin);
+        dashboardadminemail.setText(email);
+        dashboardadmin.setText(username);
     }
 
     @Override
@@ -179,21 +177,26 @@ public class admindashboard extends AppCompatActivity implements NavigationView.
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
-            case R.id.navhome:
+            case R.id.adminnavhome:
                 break;
-            case R.id.navservices:
-                Intent intent1 = new Intent(admindashboard.this,edituser.class);
+            case R.id.adminedit:
+                Intent intent1 = new Intent(admindashboard.this,editadmin.class);
                 intent1.putExtra("key_email",email);
                 startActivity(intent1);
                 break;
-            case R.id.navnotification:
+            case R.id.adminadd:
+                Intent intent2 = new Intent(admindashboard.this,addadmin.class);
+                intent2.putExtra("key_email",email);
+                startActivity(intent2);
+                break;
+            case R.id.adminnavnotification:
                 Toast.makeText(this, "No Notifications", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.navhistory:
+            case R.id.adminnavhistory:
                 break;
-            case R.id.navpayment:
+            case R.id.adminnavpayment:
                 break;
-            case R.id.navlogout:
+            case R.id.adminnavlogout:
                 Intent intent = new Intent(admindashboard.this,MainActivity.class);
                 startActivity(intent);
                 break;

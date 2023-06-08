@@ -17,6 +17,12 @@
         tools:replace="android:appComponentFactory"
         tools:targetApi="31">
         <activity
+            android:name=".addadmin"
+            android:exported="false" />
+        <activity
+            android:name=".editadmin"
+            android:exported="false" />
+        <activity
             android:name=".admindashboard"
             android:exported="false" />
         <activity

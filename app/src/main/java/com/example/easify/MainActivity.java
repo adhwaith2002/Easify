@@ -156,8 +156,7 @@ public class MainActivity extends AppCompatActivity {
                     else if(checkemailpassword12 == true){
                         Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this,admindashboard.class);
-                        //intent.putExtra("key_email",email1);
-                        //intent.putExtra("key_table","driver");
+                        intent.putExtra("key_email",email1);
                         startActivity(intent);
                     }
                     else {

@@ -86,6 +86,19 @@ public class DBHelper extends SQLiteOpenHelper {
         long result1 = db.insert("users", null, values1);
         return result1 != -1;
     }
+    public Boolean insertAdminData(String username,String email, String password,String mobile,String address,String city) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("admin_name", username);
+        values.put("admin_email", email);
+        values.put("admin_password", password);
+        values.put("admin_mobile", mobile);
+        values.put("admin_address", address);
+        values.put("admin_city", city);
+
+        long result1 = db.insert("admin", null, values);
+        return result1 != -1;
+    }
     public Boolean insertPlumberData(String username, String email, String password, String mobile, String address, String city){
     SQLiteDatabase db = this.getWritableDatabase();
     ContentValues values2 = new ContentValues();
@@ -556,6 +569,23 @@ public class DBHelper extends SQLiteOpenHelper {
       cursor.close();
       return arrUser;
     }
+    public ArrayList<AdminModel> fetchAdmin(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from admin where admin_email=?",new String[]{email});
+        ArrayList<AdminModel> arrUser = new ArrayList<>();
+        while(cursor.moveToNext()){
+            AdminModel model = new AdminModel();
+            model.username = cursor.getString(0);
+            model.email = cursor.getString(1);
+            model.password = cursor.getString(2);
+            model.mobile = cursor.getString(3);
+            model.address = cursor.getString(4);
+            model.city = cursor.getString(5);
+            arrUser.add(model);
+        }
+        cursor.close();
+        return arrUser;
+    }
     public ArrayList<UserModel>collectUserPlumber(String email){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from user_plumber where plumber_email=?",new String[]{email});
@@ -938,6 +968,19 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put("address",address);
         values.put("city",city);
         int rowsAffected = db.update("users", values, "email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+    public boolean editadmin(String username,String newemail,String mobile,String address,String city,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("admin_name",username);
+        values.put("admin_email",newemail);
+        values.put("admin_mobile",mobile);
+        values.put("admin_address",address);
+        values.put("admin_city",city);
+        int rowsAffected = db.update("admin", values, "admin_email=?", new String[]{email});
         db.close();
         return rowsAffected > 0;
     }
