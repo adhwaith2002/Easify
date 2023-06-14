@@ -943,6 +943,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+    public Cursor fetchHousecleaning1(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from housecleaner",null);
+        return cursor;
+
+    }
 
     public Cursor fetchAppliance(){
         SQLiteDatabase db = this.getReadableDatabase();
@@ -950,9 +956,21 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+    public Cursor fetchAppliance1(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from appliancerepair",null);
+        return cursor;
+
+    }
     public Cursor fetchTreecutting(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor=db.rawQuery("Select * from treecutter where treecutter_status = 1",null);
+        return cursor;
+
+    }
+    public Cursor fetchTreecutting1(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from treecutter",null);
         return cursor;
 
     }
@@ -1364,6 +1382,27 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         rowsDeleted = db.delete("electrician","electrician_email=?",new String[]{email});
+        return rowsDeleted>0;
+    }
+    public  boolean deleteHousecleaning(String email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("housecleaner","cleaner_email=?",new String[]{email});
+        return rowsDeleted>0;
+    }
+    public  boolean deleteAppliance(String email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("appliancerepair","appliancerepair_email=?",new String[]{email});
+        return rowsDeleted>0;
+    }
+    public  boolean deleteTreecutting(String email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("treecutter","treecutter_email=?",new String[]{email});
         return rowsDeleted>0;
     }
     public boolean deleteRowsByEmail1(String email,String serviceprovider_email){

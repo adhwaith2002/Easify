@@ -95,7 +95,7 @@ public class admindashboard extends AppCompatActivity implements NavigationView.
         adminhousecleaningimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(admindashboard.this,housecleaning.class);
+                Intent intent = new Intent(admindashboard.this,housecleaninglist1.class);
                 intent.putExtra("key_email",email);
                 startActivity(intent);
             }
@@ -104,7 +104,7 @@ public class admindashboard extends AppCompatActivity implements NavigationView.
         adminapplianceimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(admindashboard.this,appliance.class);
+                Intent intent = new Intent(admindashboard.this,appliancelist1.class);
                 intent.putExtra("key_email",email);
                 startActivity(intent);
             }
@@ -113,7 +113,7 @@ public class admindashboard extends AppCompatActivity implements NavigationView.
         admintreecuttingimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(admindashboard.this,treecutting.class);
+                Intent intent = new Intent(admindashboard.this,treecuttinglist1.class);
                 intent.putExtra("key_email",email);
                 startActivity(intent);
             }
