@@ -10,12 +10,24 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/administration"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Easify"
         tools:replace="android:appComponentFactory"
         tools:targetApi="31">
+        <activity
+            android:name=".electricianlist1"
+            android:exported="false" />
+        <activity
+            android:name=".painterlist1"
+            android:exported="false" />
+        <activity
+            android:name=".plumberlist1"
+            android:exported="false" />
+        <activity
+            android:name=".carmechaniclist1"
+            android:exported="false" />
         <activity
             android:name=".addadmin"
             android:exported="false" />

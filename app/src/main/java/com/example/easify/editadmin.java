@@ -2,12 +2,14 @@ package com.example.easify;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -31,7 +33,7 @@ public class editadmin extends AppCompatActivity implements NavigationView.OnNav
     DBHelper DB;
     EditText editadminusername,editadminemail,editadminmobile,editadminaddress,editadmincity;
     Button editadminbtn;
-
+    AlertDialog.Builder builder;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -79,6 +81,7 @@ public class editadmin extends AppCompatActivity implements NavigationView.OnNav
         editadminmobile.setText(mobile);
         editadminaddress.setText(address);
         editadmincity.setText(city);
+        builder = new AlertDialog.Builder(this);
         editadminbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,7 +93,12 @@ public class editadmin extends AppCompatActivity implements NavigationView.OnNav
 
                 boolean success = DB.editadmin(updatedUsername, updatedEmail, updatedMobile, updatedAddress, updatedCity,email);
                 if (success) {
-                    Toast.makeText(editadmin.this, "Updated successfull", Toast.LENGTH_SHORT).show();
+                    builder.setTitle("Sucess").setMessage("Updated sucessfully").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    }).show();
                 } else {
                     Toast.makeText(editadmin.this, "Failed to update", Toast.LENGTH_SHORT).show();
                 }

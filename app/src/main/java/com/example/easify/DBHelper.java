@@ -895,9 +895,21 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+    public Cursor fetchPlumber1(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from plumber",null);
+        return cursor;
+
+    }
     public Cursor fetchPainter(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor=db.rawQuery("Select * from painter where painter_status = 1",null);
+        return cursor;
+
+    }
+    public Cursor fetchPainter1(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from painter",null);
         return cursor;
 
     }
@@ -907,9 +919,21 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+    public Cursor fetchCarmechanic1(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from carmechanic",null);
+        return cursor;
+
+    }
     public Cursor fetchElectrician(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor=db.rawQuery("Select * from electrician where electrician_status = 1",null);
+        return cursor;
+
+    }
+    public Cursor fetchElectrician1(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from electrician",null);
         return cursor;
 
     }
@@ -1313,6 +1337,34 @@ public class DBHelper extends SQLiteOpenHelper {
             db.close();
         }
         return rowsAffected > 0;
+    }
+    public  boolean deletePlumber(String email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("plumber","plumber_email=?",new String[]{email});
+        return rowsDeleted>0;
+    }
+    public  boolean deletePainter(String email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("painter","painter_email=?",new String[]{email});
+        return rowsDeleted>0;
+    }
+    public  boolean deleteCarmechanic(String email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("carmechanic","carmechanic_email=?",new String[]{email});
+        return rowsDeleted>0;
+    }
+    public  boolean deleteElectrician(String email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("electrician","electrician_email=?",new String[]{email});
+        return rowsDeleted>0;
     }
     public boolean deleteRowsByEmail1(String email,String serviceprovider_email){
         int rowsDeleted=0;

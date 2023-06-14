@@ -57,95 +57,95 @@ public class admindashboard extends AppCompatActivity implements NavigationView.
         }
         String username = arrUser.get(0).username;
 
-      /**  plumberimage.setOnClickListener(new View.OnClickListener() {
+        adminplumberimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(userdashboard.this,plumber.class);
+                Intent intent = new Intent(admindashboard.this,plumberlist1.class);
                 intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
-        paintingimage.setOnClickListener(new View.OnClickListener() {
+        adminpaintingimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(userdashboard.this,painting.class);
-                intent.putExtra("key_email",email);
-                startActivity(intent);
-            }
-        });
-
-        carmechanicimage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(userdashboard.this,carmechanic.class);
+                Intent intent = new Intent(admindashboard.this, painterlist1.class);
                 intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
 
-        electricianimage.setOnClickListener(new View.OnClickListener() {
+        admincarmechanicimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(userdashboard.this,electrician.class);
+                Intent intent = new Intent(admindashboard.this,carmechaniclist1.class);
                 intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
 
-        housecleaningimage.setOnClickListener(new View.OnClickListener() {
+        adminelectricianimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(userdashboard.this,housecleaning.class);
+                Intent intent = new Intent(admindashboard.this,electricianlist1.class);
                 intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
 
-        applianceimage.setOnClickListener(new View.OnClickListener() {
+        adminhousecleaningimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(userdashboard.this,appliance.class);
+                Intent intent = new Intent(admindashboard.this,housecleaning.class);
                 intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
 
-        treecuttingimage.setOnClickListener(new View.OnClickListener() {
+        adminapplianceimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(userdashboard.this,treecutting.class);
+                Intent intent = new Intent(admindashboard.this,appliance.class);
                 intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
 
-        gardeningimage.setOnClickListener(new View.OnClickListener() {
+        admintreecuttingimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(userdashboard.this,gardening.class);
+                Intent intent = new Intent(admindashboard.this,treecutting.class);
                 intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
 
-        cookimage.setOnClickListener(new View.OnClickListener() {
+        admingardeningimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(userdashboard.this,cook.class);
+                Intent intent = new Intent(admindashboard.this,gardening.class);
                 intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
 
-        driverimage.setOnClickListener(new View.OnClickListener() {
+        admincookimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(userdashboard.this,driver.class);
+                Intent intent = new Intent(admindashboard.this,cook.class);
                 intent.putExtra("key_email",email);
                 startActivity(intent);
             }
         });
-      **/
+
+        admindriverimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(admindashboard.this,driver.class);
+                intent.putExtra("key_email",email);
+                startActivity(intent);
+            }
+        });
+
 
 
 
