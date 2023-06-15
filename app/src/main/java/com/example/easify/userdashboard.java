@@ -186,8 +186,10 @@ public class userdashboard extends AppCompatActivity implements NavigationView.O
                 intent1.putExtra("key_email",email);
                 startActivity(intent1);
                 break;
-            case R.id.navnotification:
-                Toast.makeText(this, "No Notifications", Toast.LENGTH_SHORT).show();
+            case R.id.navnchangepassword:
+                Intent intent2 = new Intent(userdashboard.this,changeuserpassword.class);
+                intent2.putExtra("key_email",email);
+                startActivity(intent2);
                 break;
             case R.id.navhistory:
                 break;

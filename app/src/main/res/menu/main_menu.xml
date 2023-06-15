@@ -17,9 +17,9 @@
 
 
         <item
-            android:id="@+id/navnotification"
-            android:title="Notification"
-            android:icon="@drawable/baseline_notifications_active_24"/>
+            android:id="@+id/navnchangepassword"
+            android:title="Change Password"
+            android:icon="@drawable/baseline_lock_24"/>
         <item
             android:id="@+id/navhistory"
             android:title="History"

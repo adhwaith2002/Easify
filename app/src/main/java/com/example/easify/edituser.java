@@ -117,8 +117,10 @@ public class edituser extends AppCompatActivity implements NavigationView.OnNavi
                 break;
             case R.id.navservices:
                 break;
-            case R.id.navnotification:
-                Toast.makeText(this, "No Notifications", Toast.LENGTH_SHORT).show();
+            case R.id.navnchangepassword:
+                 Intent intent2 = new Intent(edituser.this,changeuserpassword.class);
+                 intent2.putExtra("key_email",email);
+                 startActivity(intent2);
                 break;
             case R.id.navhistory:
                 break;

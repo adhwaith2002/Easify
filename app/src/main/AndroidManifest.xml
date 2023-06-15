@@ -17,6 +17,18 @@
         tools:replace="android:appComponentFactory"
         tools:targetApi="31">
         <activity
+            android:name=".changeuserpassword"
+            android:exported="false" />
+        <activity
+            android:name=".driverlist1"
+            android:exported="false" />
+        <activity
+            android:name=".cooklist1"
+            android:exported="false" />
+        <activity
+            android:name=".gardeninglist1"
+            android:exported="false" />
+        <activity
             android:name=".treecuttinglist1"
             android:exported="false" />
         <activity

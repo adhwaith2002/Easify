@@ -92,8 +92,10 @@ public class gardening extends AppCompatActivity implements NavigationView.OnNav
                 intent2.putExtra("key_email",email);
                 startActivity(intent2);
                 break;
-            case R.id.navnotification:
-                Toast.makeText(this, "No Notifications", Toast.LENGTH_SHORT).show();
+            case R.id.navnchangepassword:
+                Intent intent3 = new Intent(gardening.this,changeuserpassword.class);
+                intent3.putExtra("key_email",email);
+                startActivity(intent3);
                 break;
             case R.id.navhistory:
                 break;

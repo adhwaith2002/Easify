@@ -980,15 +980,33 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+    public Cursor fetchGardening1(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from gardener",null);
+        return cursor;
+
+    }
     public Cursor fetchCook(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor=db.rawQuery("Select * from cook where cook_status = 1",null);
         return cursor;
 
     }
+    public Cursor fetchCook1(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from cook",null);
+        return cursor;
+
+    }
     public Cursor fetchDriver(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor=db.rawQuery("Select * from driver where driver_status = 1",null);
+        return cursor;
+
+    }
+    public Cursor fetchDriver1(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from driver",null);
         return cursor;
 
     }
@@ -1009,6 +1027,15 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put("mobile",mobile);
         values.put("address",address);
         values.put("city",city);
+        int rowsAffected = db.update("users", values, "email=?", new String[]{email});
+        db.close();
+        return rowsAffected > 0;
+    }
+    public boolean changeuserpassword(String password,String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("password",password);
         int rowsAffected = db.update("users", values, "email=?", new String[]{email});
         db.close();
         return rowsAffected > 0;
@@ -1403,6 +1430,27 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         rowsDeleted = db.delete("treecutter","treecutter_email=?",new String[]{email});
+        return rowsDeleted>0;
+    }
+    public  boolean deleteGardening(String email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("gardener","gardener_email=?",new String[]{email});
+        return rowsDeleted>0;
+    }
+    public  boolean deleteCook(String email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("cook","cook_email=?",new String[]{email});
+        return rowsDeleted>0;
+    }
+    public  boolean deleteDriver(String email){
+        int rowsDeleted=0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        rowsDeleted = db.delete("driver","driver_email=?",new String[]{email});
         return rowsDeleted>0;
     }
     public boolean deleteRowsByEmail1(String email,String serviceprovider_email){
